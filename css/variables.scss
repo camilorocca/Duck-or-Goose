@@ -1,0 +1,61 @@
+/********************************
+***            FONTS          ***
+********************************/
+
+
+/********************************
+***       COLOR PALETTE       ***
+********************************/
+
+$primary-color: #fff;
+$secondary-color: #000;
+
+/* Media Queries simplified using Sass mixins
+========================================================= */
+
+// a map of breakpoints.
+$breakpoints: (
+    phone: 576px,
+    tablet: 768px,
+    tablet-lg: 992px,
+    desktop: 1200px,
+    desktop-lg: 1400px,
+    desktop-xl: 1600px
+);
+
+// mixin called in place of mediaqueries for-size
+@mixin for-size($breakpoint, $direction:down) {
+    // if the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        // determine the direction and then write the media query.
+        @if $direction == up {
+            @media (min-width: $breakpoint-value) {
+                @content;
+            }
+        }
+        @else if $direction == down {
+            @media (max-width: $breakpoint-value) {
+                @content;
+            }
+        }
+    }
+    // if the breakpoint doesn't exist in the map, pass a manual breakpoint
+    @else {
+        @if $direction == up {
+            @media (min-width: $breakpoint) {
+                @content;
+            }
+        }
+        @else if $direction == down {
+            @media (max-width: $breakpoint) {
+                @content;
+            }
+        }
+    }
+}
+
+/********************************
+***       COMMON STYLES       ***
+********************************/
