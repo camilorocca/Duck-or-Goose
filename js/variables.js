@@ -1,5 +1,6 @@
-var sacrifices = [
+export let sacrifices = [
     {
+        id: 0,
         name: "Adrián",
         surnames: {
             surnameOne: "Suñé",
@@ -10,6 +11,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 1,
         name: "Albert",
         surnames: {
             surnameOne: "Arqués",
@@ -20,6 +22,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 2,
         name: "Alejandra",
         surnames: {
             surnameOne: "Morales",
@@ -30,6 +33,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 3,
         name: "Alejandro",
         surnames: {
             surnameOne: "Buriticá",
@@ -40,6 +44,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 4,
         name: "Alessandro",
         surnames: {
             surnameOne: "Arroyo",
@@ -50,6 +55,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 5,
         name: "Andrés Esteban",
         surnames: {
             surnameOne: "Patiño",
@@ -60,6 +66,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 6,
         name: "Camilo",
         surnames: {
             surnameOne: "Rocca",
@@ -70,6 +77,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 7,
         name: "Carla",
         surnames: {
             surnameOne: "Luppi",
@@ -80,6 +88,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 8,
         name: "Cristian Damaso",
         surnames: {
             surnameOne: "Calderon",
@@ -90,6 +99,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 9,
         name: "Eberth Isaac",
         surnames: {
             surnameOne: "Castro",
@@ -100,6 +110,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 10,
         name: "Eduard",
         surnames: {
             surnameOne: "",
@@ -110,6 +121,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 11,
         name: "Erick Andres",
         surnames: {
             surnameOne: "Crespin",
@@ -120,6 +132,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 12,
         name: "Federico Carlos",
         surnames: {
             surnameOne: "Gatti",
@@ -130,6 +143,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 13,
         name: "Francisco",
         surnames: {
             surnameOne: "Aguirre",
@@ -140,6 +154,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 14,
         name: "Gary",
         surnames: {
             surnameOne: "Huayhuasi",
@@ -150,6 +165,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 15,
         name: "Guillem",
         surnames: {
             surnameOne: "Martínez",
@@ -160,6 +176,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 16,
         name: "Ingrid",
         surnames: {
             surnameOne: "Barrachina",
@@ -170,6 +187,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 17,
         name: "Isabel",
         surnames: {
             surnameOne: "Santos",
@@ -180,6 +198,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 18,
         name: "Jerry",
         surnames: {
             surnameOne: "Aiyaniyo",
@@ -190,6 +209,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 19,
         name: "Jessica Alexandra",
         surnames: {
             surnameOne: "Jaramillo",
@@ -200,6 +220,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 20,
         name: "Judit",
         surnames: {
             surnameOne: "Calvet",
@@ -210,6 +231,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 21,
         name: "Lidia",
         surnames: {
             surnameOne: "Luque",
@@ -220,6 +242,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 22,
         name: "Mamadou",
         surnames: {
             surnameOne: "",
@@ -230,6 +253,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 23,
         name: "Mario Alberto",
         surnames: {
             surnameOne: "Valdés",
@@ -240,6 +264,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 24,
         name: "Mateo",
         surnames: {
             surnameOne: "Sandoval",
@@ -250,6 +275,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 25,
         name: "Oksana",
         surnames: {
             surnameOne: "Fedyukova",
@@ -260,6 +286,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 26,
         name: "Rocío",
         surnames: {
             surnameOne: "Cejudo",
@@ -270,6 +297,7 @@ var sacrifices = [
         killed: false
     },
     {
+        id: 27,
         name: "Rodrigo",
         surnames: {
             surnameOne: "Fernández",
