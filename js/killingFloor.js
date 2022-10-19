@@ -3,6 +3,23 @@ import { sacrifices } from "./variables.js";
 //sacrifices from variables.js
 console.log(sacrifices);
 
+function Sacrifice(id, name, surnames, age, born) {
+    this.id = id;
+    this.name = name;
+    this.surnames = { 
+        surnameOne: surnames.surnameOne,
+        surnameTwo: surnames.surnameTwo,
+    };
+    this.age = age;
+    this.born = born;
+    this.killed = false;
+
+    this.printInfo = () =>{
+        return `Marca: ${this.marca} / Numero de puertas: ${this.nPuertas} / Modelo: ${this.data.modelo} 
+        / Precio: ${this.data.price}€`;
+    }
+}
+
 //Global variables
 let elementToCreate;
 let elementToAppend;
@@ -12,10 +29,30 @@ let elementArray = [];
 
 let audioFogHorn = new Audio('../media/audio/fogHorn.mp3');
 
+let fogSetted = true;
+
 /* On load functions
 ========================================================= */
 window.onload = (event) => {
     console.log('Page is fully loaded');
+
+    let form = searchEl('#formAddSacrifice');
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        switch (form.id){
+            case "formAddSacrifice":
+                let id = sacrifices.length; //this method will give problems in delete function
+                let surnames = {
+                    surnameOne: "",
+                    surnameTwo: ""
+                    }
+    
+                sacrifices.push(new Sacrifice(id, form[0].value, surnames, 0, ""));
+
+                console.log(sacrifices)
+            break;
+        };
+    });
 
     audioFogHorn.play();
     audioFogHorn.loop = true; 
@@ -66,13 +103,15 @@ const handleClick = (element) => { // higher order function
     switch (element.id){
         case "mainContainer":
             return () => {  
-                elementToAppend = searchEl('#mainContainer .wrapper-2');
-                audioFogHorn.pause();
-                elementToAppend.classList.add("puff-out-hor");
-                setTimeout(() => {
-                    elementToAppend.remove();
-                }, 1000);
-                
+                if(fogSetted === true){
+                    let removeFog = searchEl('#mainContainer .fog-container');
+                    audioFogHorn.pause();
+                    removeFog.classList.add("puff-out-hor");
+                    fogSetted = false;
+                    setTimeout(() => {
+                        removeFog.remove();
+                    }, 1000);
+                }  
             };
 
         case "btn-startKilling":
@@ -86,8 +125,27 @@ const handleClick = (element) => { // higher order function
                 let deadPerson = killSomeone();
                 crossDead(deadPerson);               
             };
+        
+        case "btn-addSacrifices":
+            return () => {       
+                showForm();            
+            };  
     } 
 };
+
+/* Handle sumbits and called functions
+========================================================= */
+const handleSubmit = (element) => { // higher order function
+    console.log(element)
+    e.preventDefault();
+    switch (element.id){
+        case "formAddSacrifice":
+            return () => {  
+                addSacrifice(element);
+            };
+    };
+};
+
 
 //function for starting game 
 const startKilling = () => {
@@ -118,9 +176,9 @@ const startKilling = () => {
 
     elementToCreate = createEl("button");
     elementToAppend = searchEl("#startPoint div div div:last-of-type");
-    addNode(elementToAppend, elementToCreate, ["btn", "btn-danger"]);
+    addNode(elementToAppend, elementToCreate, ["btn", "btn-orange"]);
 
-    setButton(elementToAppend.firstElementChild  , "btn-killSomeone", "button", "Kill Someone");
+    setButton(elementToAppend.firstElementChild , "btn-killSomeone", "button", "Kill Someone");
 
     addClasses();
 }
@@ -186,6 +244,14 @@ const setButton = (el, id, type, text) => {
     el.addEventListener("click", handleClick(el));
 }
 
+//function to give popover attribute to button
+/*const setPopOver = (el) => {
+    el.setAttribute("data-bs-container", "body");
+    el.setAttribute("data-bs-toggle", "popover");
+    el.setAttribute("data-bs-placement", "top");
+    el.setAttribute("data-html", "true");
+}*/
+
 //function to remove childs of components
 const removeContent = (el) => {
     if(el.hasChildNodes()){
@@ -203,6 +269,13 @@ const crossDead = (obj) => {
         }
     });
 }
+
+//function to show hidden form
+const showForm = () => {
+    let formElement = searchEl("#formContainer")
+    formElement.classList.remove("d-none")
+}
+
 
 /* Functions to wait to element creation
 ========================================================= */
