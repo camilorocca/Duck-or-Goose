@@ -23,13 +23,15 @@ Wheel of Doom uses a number of open source projects to work properly:
 - [Sass] 
 - [Twitter Bootstrap] - great UI boilerplate for modern web apps
 - [node.js]
-- [jQuery].
+
 
 ## Resources
 
 Wheel of Doom uses this as reference:
 
 - [Media Queries simplified for Sass] - Sass mixin used to simplify Media Queries
+- [Fog Animation]
+- [Animista Animations]
 
 ## Installation
 
@@ -58,7 +60,8 @@ Factoria f5 - Gentis
    [HTML]: <https://developer.mozilla.org/es/docs/Web/HTML>
    [node.js]: <http://nodejs.org>
    [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
    [Sass]: <https://sass-lang.com/install>
    
    [Media Queries simplified for Sass]: <https://cheewebdevelopment.com/element-first-scss-media-queries/>
+   [Fog Animation]: <https://www.youtube.com/watch?v=hoesSpWk3zM&t=35s&ab_channel=Divinector>
+   [Animista Animations]: <https://animista.net/play/exits/puff-out/puff-out-hor>

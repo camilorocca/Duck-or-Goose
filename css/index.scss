@@ -1,1 +1,190 @@
 @import "./variables.scss";
+
+/********************************
+***       COMMON STYLES       ***
+********************************/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+//buttons colors
+.btn-orange {
+    background-color: $secondary-color;
+    color: $moon-color;
+    border-radius: 50px;
+}
+.btn-purple {
+    background-color: $primary-color;
+    color: $moon-color;
+    border-radius: 50px;
+}
+
+.text-color-moon {
+    color: $moon-color;
+}
+
+/********************************
+***        START POINT        ***
+********************************/
+
+#startPoint{
+    .container-md{
+        .d-grid{
+            @include for-size(phone,down) {
+                margin-top:120%;
+                }
+            @include for-size(tablet,up) {
+                margin-top:65%;
+            }
+            @include for-size(tablet-lg,up) {
+                margin-top:50%;
+            }
+            @include for-size(desktop,up) {
+                margin-top:30%;
+            }
+            @include for-size(desktop-lg,up) {
+                margin-top:35%;
+            }
+            @include for-size(desktop-xl,up) {
+                margin-top:47%;
+            }
+        }
+    }
+}
+
+/********************************
+***       FOG ANIMATION       ***
+********************************/
+
+.wrapper{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background:#fff;
+
+    .banner-img {
+        background: url("../../../media/images/index/background-start.png");
+        background-position: 50%;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        overflow: hidden;
+        position: absolute;
+        top:0;
+        left:0%;
+        height: 100%;
+        width:100%;
+        z-index:0;
+        @include for-size(desktop-xl,up) {
+            background-size: cover;
+            }
+            @include for-size(phone,down) {
+                background-position-x: 85%;
+                }
+
+        .wrapper-2 {
+            position:absolute;
+            width: 100%;
+            height:100%;
+            overflow: hidden;
+            z-index: 1;
+
+            .img-area{
+                position: absolute;
+                height: 100vh;
+                width:300vw;
+                z-index: 2;
+            }
+            
+            .thing1{
+                background: url("../../../media/images/index/fog-1.png");
+                background-repeat: repeat-x;
+                -webkit-background-size: contain;
+                background-size: contain;
+                background-position: center;
+                animation: animate 65s linear infinite;
+            }
+            
+            .thing1{
+                background: url("../../../media/images/index/fog-2.png");
+                background-repeat: repeat-x;
+                -webkit-background-size: contain;
+                background-size: contain;
+                background-position: center;
+                animation: animate 35s linear infinite;
+            }
+        }
+        .text-area {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    }
+}
+/* Fog animation keyframes
+========================================================= */
+@keyframes animate {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+
+    100% {
+        transform: translate3d(-200vw,0,0);
+    }
+    
+}
+
+/********************************
+***     FOG-OUT ANIMATION     ***
+********************************/
+
+.puff-out-hor {
+	-webkit-animation: puff-out-hor 2000ms cubic-bezier(0.165, 0.840, 0.440, 1.000) ;
+	        animation: puff-out-hor 2000ms cubic-bezier(0.165, 0.840, 0.440, 1.000) ;
+}
+/* Fog-out animation keyframes
+========================================================= */
+@-webkit-keyframes puff-out-hor {
+    0% {
+        -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scaleX(2);
+                transform: scaleX(2);
+        -webkit-filter: blur(4px);
+                filter: blur(4px);
+        opacity: 0;
+    }
+}
+@keyframes puff-out-hor {
+    0% {
+        -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scaleX(2);
+                transform: scaleX(2);
+        -webkit-filter: blur(4px);
+                filter: blur(4px);
+        opacity: 0;
+    }
+}
