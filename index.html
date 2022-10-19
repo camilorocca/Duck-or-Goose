@@ -17,22 +17,43 @@
 
     <body>
         <!-- Header -->
-        <header></header>
+        <header>
+        </header>
 
         <!-- Main updated whit javascript-->
         <main role="main" id="mainContainer">
-            <div class="wrapper">
-                <div class="banner-img">
-                    <div class="wrapper-2">
-                        <div class="img-area thing1"></div>
-                        <div class="img-area thing1"></div>
+            <div class="spooky-container">
+                <div class="background-img-container">
+                    <div class="fog-container">
+                        <div class="img-area fog"></div>
+                        <div class="img-area fog"></div>
                     </div>
-                    <div class="text area" id="startPoint">
+                    <div class="update-area" id="startPoint">
                         
                     </div>
                 </div>
             </div>
         </main>
+
+        <section id="formContainer" class="d-none">
+            <div class="container-md">
+                <div class="form-group background-papyrus">
+                    <form id="formAddSacrifice" class="d-grid col-7 mx-auto">
+                        <div class="form-row mb-1">
+                            <div class="col-md-12">
+                                <div class="input-group mb-1">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text">Nombre</label>
+                                    </div>
+                                    <input class="form-control input-data" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <button type ="submit" class="btn btn-orange">Add Sacrifice</button>
+                    </form>
+                </div>
+            </div>
+        </section>
         
         <!-- Script popper for popUps and dropdowns and bootsrapj.s -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
