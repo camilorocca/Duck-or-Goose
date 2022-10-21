@@ -13,11 +13,6 @@ function Sacrifice(id, name, surnames, age, born) {
     this.age = age;
     this.born = born;
     this.killed = false;
-
-    this.printInfo = () =>{
-        return `Marca: ${this.marca} / Numero de puertas: ${this.nPuertas} / Modelo: ${this.data.modelo} 
-        / Precio: ${this.data.price}€`;
-    }
 }
 
 //Global variables
@@ -282,5 +277,18 @@ const showForm = () => {
     } else setTimeout(()=>waitUntilElementLoad(selector, delay), delay);
 }*/
 
+
+//function delete coders
+
+const deleteSacrifice = (object) => {
+    for (let i = 0; i < sacrifices.length; i++) {
+        if(object.id == sacrifices[i].id){
+            console.log (sacrifices)
+            sacrifices.splice(i, 1);            
+        }        
+    }        
+}
+
 //function animation jumping duck 
+
 
