@@ -15,6 +15,7 @@ body {
     background-color: $secondary-color;
     color: $moon-color;
     border-radius: 50px;
+    pointer-events: auto;
 }
 .btn-purple {
     background-color: $primary-color;
@@ -26,15 +27,29 @@ body {
     color: $moon-color;
 }
 
+.creepy-font {
+    font-family: $font-main!important;
+}
+
 /********************************
 ***        START POINT        ***
 ********************************/
+div{
+    h1{
+        font-size: 3rem;
+        @include for-size(desktop-xl,up) {
+            font-size: 5rem;
+            text-align: center;
+        }
+    }
+}
 
 #startPoint{
+    
     .container-md{
         .d-grid{
             @include for-size(phone,down) {
-                margin-top:120%;
+                margin-top:80%;
                 }
             @include for-size(tablet,up) {
                 margin-top:65%;
@@ -49,7 +64,7 @@ body {
                 margin-top:35%;
             }
             @include for-size(desktop-xl,up) {
-                margin-top:47%;
+                margin-top:20%;
             }
         }
     }
@@ -62,20 +77,72 @@ body {
 .background-papyrus{
     background: url("../../../media/images/index/background-papyrus.png");
         background-repeat: no-repeat;
-        overflow: hidden;
+        overflow-x:auto; 
+        overflow-y:scroll;
         position: absolute;
-        top:0;
-        left:4%;
         height: 100%;
         width:100%;
         z-index:0;
+        top:0;
+        pointer-events: none; 
+        
+        
+@include for-size(phone,down) {
+    left:15%;
+    transform: translateX(-11%);
+    }
+@include for-size(tablet,down) {
+    left:14%;
+    transform: translateX(-10%);
+}
+@include for-size(tablet,up) {
+    left:35%;
+    transform: translateX(-10%);
+}
+@include for-size(desktop,up) {
+    left:47%;
+    transform: translateX(-10%);
+}
+@include for-size(desktop-lg,up) {
+    left: 60%;
+    transform: translateX(-25%);
+}
+@include for-size(desktop-xl,up) {
+    left:73%;
+    transform: translateX(-35%);
+}
+
     #formAddSacrifice{
         position: absolute;
         margin-left: auto;
         margin-right: auto;
         top: 15%;
         left: 0;
-        right: 0;
+        @include for-size(phone,down) {
+            left:15%;
+        }
+    @include for-size(tablet,up) {
+        
+    }
+    @include for-size(tablet-lg,up) {
+        
+    }
+    @include for-size(desktop,up) {
+        left:3.5%;
+    }
+    @include for-size(desktop-lg,up) {
+        left:3.9%
+        
+    }
+    @include for-size(desktop-xl,up) {
+        
+    }
+    #btn-closeAddPlayers{
+        margin-top: 45%;
+        @include for-size(desktop-lg,up) {
+            margin-top: 40%
+        }
+    }
     }
 }
 
@@ -92,12 +159,13 @@ body {
     background:#fff;
 
     .background-img-container {
-        background: url("../../../media/images/index/background-start.png");
+        background: url("../../../media/images/index/background-start-hd.png");
         background-position: 50%;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         background-size: cover;
-        overflow: hidden;
+        overflow-y:scroll; 
+        overflow-x:hidden; 
         position: absolute;
         top:0;
         left:0%;
@@ -215,3 +283,7 @@ body {
         opacity: 0;
     }
 }
+
+
+
+

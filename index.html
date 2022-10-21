@@ -10,7 +10,8 @@
         <!-- Bootsrap link -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
                 rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        
+        <link rel="stylesheet" href="./lib/owlcarousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="./lib/owlcarousel/owl.theme.default.min.css">
         <!-- Custom styles -->
         <link rel="stylesheet" type="text/css" href="./css/index.css">
     </head>
@@ -19,7 +20,6 @@
         <!-- Header -->
         <header>
         </header>
-
         <!-- Main updated whit javascript-->
         <main role="main" id="mainContainer">
             <div class="spooky-container">
@@ -31,6 +31,8 @@
                     <div class="update-area" id="startPoint">
                         
                     </div>
+                    
+                   
                 </div>
             </div>
         </main>
@@ -38,24 +40,32 @@
         <section id="formContainer" class="d-none">
             <div class="container-md">
                 <div class="form-group background-papyrus">
-                    <form id="formAddSacrifice" class="d-grid col-7 mx-auto">
+                    <form id="formAddSacrifice" class="d-grid mx-auto">
                         <div class="form-row mb-1">
-                            <div class="col-md-12">
+                            <div class="col-md-12 w-75">
                                 <div class="input-group mb-1">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text">Nombre</label>
+                                        <label class="input-group-text creepy-font">Name</label>
                                     </div>
-                                    <input class="form-control input-data" type="text">
+                                    <input class="form-control input-data" type="text" placeholder="name">
+                                </div>
+                                <div class="input-group mb-1">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text creepy-font" for="inputGroupSelectMarca">Surname</label>
+                                    </div>
+                                    <input class="form-control input-data" type="text" placeholder="surname">
                                 </div>
                             </div>
                         </div>
-                        <button type ="submit" class="btn btn-orange">Add Sacrifice</button>
+                        <button type ="submit" class="btn btn-orange w-75 creepy-font">Add Sacrifice</button>
                     </form>
+                    
                 </div>
             </div>
         </section>
         
         <!-- Script popper for popUps and dropdowns and bootsrapj.s -->
+        
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
                 integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" 
                 crossorigin="anonymous">
@@ -64,6 +74,9 @@
                 integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" 
                 crossorigin="anonymous">
         </script>
+        <script src="./lib/jquery/jquery-3.6.1.min.js"></script>
+        <script src="./lib/owlcarousel/owl.carousel.js"></script>
+        <script src="./lib/owlcarousel/owl.autoplay.js"></script>
         <!-- Custom Scripts-->
         <script type="module" src="./js/killingFloor.js"></script>
     </body>

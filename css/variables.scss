@@ -1,7 +1,12 @@
 /********************************
 ***            FONTS          ***
 ********************************/
+@font-face {
+    font-family: 'theHalloween';
+    src: url("../media/fonts/The_Halloween.ttf");
+}
 
+$font-main: 'theHalloween';
 
 /********************************
 ***       COLOR PALETTE       ***
