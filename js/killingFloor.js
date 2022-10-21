@@ -94,7 +94,6 @@ window.onload = (event) => {
     addNode(elementToAppend, elementToCreate, ["text-color-moon"]);
     elementToAppend.lastElementChild.innerHTML = "Coders still Alive";
 
-    addClasses();
 };
 
 /* Handle clicks and called functions
@@ -180,7 +179,14 @@ const startKilling = () => {
 
     setButton(elementToAppend.firstElementChild , "btn-killSomeone", "button", "Kill Someone");
 
-    addClasses();
+    elementToCreate = createEl("div");
+    elementToAppend = searchEl("#startPoint div");
+    addNode(elementToAppend, elementToCreate, ["row"]);
+
+    elementToCreate = createEl("img");
+    elementToAppend = searchEl("#startPoint div .row:last-of-type");
+    addNode(elementToAppend, elementToCreate, ["img-fluid"]);
+    elementToAppend.firstElementChild.setAttribute("src", "../media/icons/killingFloor/DuckTheKiller-Orange.svg")
 }
 
 //function to kill a coder at random
@@ -222,18 +228,8 @@ const searchEl = (selector) => {
 const addNode = (eta, etc, stringClass) => {
     eta.appendChild(etc);
     for (let i = 0; i < stringClass.length; i++) {
-        classArray.push(stringClass[i]);
-        elementArray.push(elementToAppend.lastElementChild);
+        eta.lastElementChild.classList.add(stringClass[i]);
     }
-}
-
-//function to add all stored classes
-const addClasses = () => {
-    for (let i = 0; i < elementArray.length; i++) {
-        elementArray[i].classList.add(classArray[i]);
-    }
-    elementArray.length = 0;
-    classArray.length = 0;
 }
 
 //function to give attributes to button components
@@ -285,3 +281,6 @@ const showForm = () => {
         // element found; do something
     } else setTimeout(()=>waitUntilElementLoad(selector, delay), delay);
 }*/
+
+//function animation jumping duck 
+
