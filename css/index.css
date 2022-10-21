@@ -1,6 +1,10 @@
 /********************************
 ***            FONTS          ***
 ********************************/
+@font-face {
+  font-family: "theHalloween";
+  src: url("../media/fonts/The_Halloween.ttf");
+}
 /********************************
 ***       COLOR PALETTE       ***
 ********************************/
@@ -19,6 +23,7 @@ body {
   background-color: #F66C13;
   color: #FDF0BB;
   border-radius: 50px;
+  pointer-events: auto;
 }
 
 .btn-purple {
@@ -31,12 +36,26 @@ body {
   color: #FDF0BB;
 }
 
+.creepy-font {
+  font-family: "theHalloween" !important;
+}
+
 /********************************
 ***        START POINT        ***
 ********************************/
+div h1 {
+  font-size: 3rem;
+}
+@media (min-width: 1600px) {
+  div h1 {
+    font-size: 5rem;
+    text-align: center;
+  }
+}
+
 @media (max-width: 576px) {
   #startPoint .container-md .d-grid {
-    margin-top: 120%;
+    margin-top: 80%;
   }
 }
 @media (min-width: 768px) {
@@ -61,7 +80,7 @@ body {
 }
 @media (min-width: 1600px) {
   #startPoint .container-md .d-grid {
-    margin-top: 47%;
+    margin-top: 20%;
   }
 }
 
@@ -71,13 +90,50 @@ body {
 .background-papyrus {
   background: url("../../../media/images/index/background-papyrus.png");
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: scroll;
   position: absolute;
-  top: 0;
-  left: 4%;
   height: 100%;
   width: 100%;
   z-index: 0;
+  top: 0;
+  pointer-events: none;
+}
+@media (max-width: 576px) {
+  .background-papyrus {
+    left: 15%;
+    transform: translateX(-11%);
+  }
+}
+@media (max-width: 768px) {
+  .background-papyrus {
+    left: 14%;
+    transform: translateX(-10%);
+  }
+}
+@media (min-width: 768px) {
+  .background-papyrus {
+    left: 35%;
+    transform: translateX(-10%);
+  }
+}
+@media (min-width: 1200px) {
+  .background-papyrus {
+    left: 47%;
+    transform: translateX(-10%);
+  }
+}
+@media (min-width: 1400px) {
+  .background-papyrus {
+    left: 60%;
+    transform: translateX(-25%);
+  }
+}
+@media (min-width: 1600px) {
+  .background-papyrus {
+    left: 73%;
+    transform: translateX(-35%);
+  }
 }
 .background-papyrus #formAddSacrifice {
   position: absolute;
@@ -85,7 +141,29 @@ body {
   margin-right: auto;
   top: 15%;
   left: 0;
-  right: 0;
+}
+@media (max-width: 576px) {
+  .background-papyrus #formAddSacrifice {
+    left: 15%;
+  }
+}
+@media (min-width: 1200px) {
+  .background-papyrus #formAddSacrifice {
+    left: 3.5%;
+  }
+}
+@media (min-width: 1400px) {
+  .background-papyrus #formAddSacrifice {
+    left: 3.9%;
+  }
+}
+.background-papyrus #formAddSacrifice #btn-closeAddPlayers {
+  margin-top: 45%;
+}
+@media (min-width: 1400px) {
+  .background-papyrus #formAddSacrifice #btn-closeAddPlayers {
+    margin-top: 40%;
+  }
 }
 
 /********************************
@@ -102,7 +180,8 @@ body {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   position: absolute;
   top: 0;
   left: 0%;
