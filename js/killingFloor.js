@@ -1,10 +1,7 @@
 import { sacrifices } from "./variables.js";
+import { mainTitle, playView } from "./virtualDOM.js";
 
-//sacrifices from variables.js
-console.log(sacrifices);
-
-let btnTimeID;
-
+//constructor for new sacrifices
 function Sacrifice(id, name, surnames, age, born) {
     this.id = id;
     this.name = name;
@@ -17,25 +14,120 @@ function Sacrifice(id, name, surnames, age, born) {
     this.killed = false;
 }
 
-let audioFogHorn = new Audio('../media/audio/fogHorn.mp3');
+//constructor for new DOM element
+function DomElement(id, elementToAppend, elementToCreate, ...rest) {
+    this.id = id;
+    this.elementToAppend = elementToAppend;
+    this.elementToCreate = elementToCreate;
+    this.classArray = rest[0];
+    this.text = rest[1];
+}
 
+//checks for main title
+let audioFogHorn = new Audio('../media/audio/fogHorn.mp3');
 let fogSetted = true;
 let addPlayersClicked =false;
 
+//owl carousel initial variables
 let owl;
+let btnTimeID;
 
 /* On load functions
 ========================================================= */
 window.onload = (event) => {
     console.log('Page is fully loaded');
 
-    $(".owl-carousel").owlCarousel();
-
-    audioFogHorn.play();
+    audioFogHorn.play();            //play initial sound
     audioFogHorn.loop = true; 
 
-    let form = searchEl('#formAddSacrifice');
+    setFormEventListener();         //set submit for form
 
+    searchEl('#mainContainer').addEventListener("click", handleClick(searchEl("#mainContainer")));          //set click for unset fog
+
+    drawScreen(mainTitle);
+};
+
+//draws the elements received from virtualDomJs
+const drawScreen = (virtualDom) => {
+    virtualDom.forEach(element => {
+        addNodes(element)
+    });
+};
+
+/* Handle clicks and called functions
+========================================================= */
+const handleClick = (element) => { 
+    switch (element.id){            //switch depending on button id
+        case "mainContainer":
+            return () => {          //unset fog
+                if(fogSetted === true){
+                    let removeFog = searchEl('#mainContainer .fog-container');
+                    audioFogHorn.pause();
+                    removeFog.classList.add("puff-out-hor");
+                    fogSetted = false;
+                    setTimeout(() => {
+                        removeFog.remove();
+                    }, 1000);
+                }  
+            };
+
+        case "btn-startKilling":
+            return () => {          //remove previous content and draw playView
+                if(addPlayersClicked){
+                    hideForm();
+                    addPlayersClicked=false;
+                }
+                removeContent(searchEl("#startPoint"));   
+                startKilling();                
+            };
+            
+        case "btn-killSomeone":
+            return () => {          //remove a player at random
+                let deadPerson = killSomeone();
+                crossDead(deadPerson);               
+            };
+        
+        case "btn-addSacrifices":
+            return () => {          //show parchment or hide it
+                if(addPlayersClicked){
+                    element.innerHTML = "add sacrifices";
+                    hideForm();
+                    addPlayersClicked=false;
+                }
+                else{
+                    element.innerHTML = "end ritual";
+                    showForm();
+                    addPlayersClicked=true;
+                }
+                
+            };
+
+        case "btn-play":
+            return () => {          //play carousel       
+                owl.trigger('play.owl.autoplay',[1000])              
+            };
+
+        case "btn-pause":
+            return () => {          // pause carousel       
+                owl.trigger('stop.owl.autoplay')             
+            };
+    } 
+};
+
+/* Handle sumbits and called functions
+========================================================= */
+/*const handleSubmit = (element) => { // higher order function
+    console.log(element)
+    e.preventDefault();
+    switch (element.id){
+        case "formAddSacrifice":
+            return () => {  
+                addSacrifice(element);
+            };
+    };
+};*/
+const setFormEventListener = () => {
+    let form = searchEl('#formAddSacrifice');
 
     form.addEventListener("submit", function(e) {
         e.preventDefault();
@@ -54,197 +146,28 @@ window.onload = (event) => {
             break;
         };
     });
-
-    searchEl('#mainContainer').addEventListener("click", handleClick(searchEl("#mainContainer")));
-
-    drawTitleScreen();
-};
-
-const drawTitleScreen = () => {
-    let elementToCreate;
-    let elementToAppend;
-
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl('#startPoint');
-    addNode(elementToAppend, elementToCreate, ["container-md"]);
-
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl('#startPoint div');
-    addNode(elementToAppend, elementToCreate, ["mt-5"]);
-
-    elementToCreate = createEl("h1");
-    elementToAppend = searchEl('#startPoint div div');
-    addNode(elementToAppend, elementToCreate, ["creepy-font"]);
-    elementToAppend.lastElementChild.innerHTML = "duck";
-    elementToCreate = createEl("h1");
-    addNode(elementToAppend, elementToCreate, ["creepy-font"]);
-    elementToAppend.lastElementChild.innerHTML = "or";
-    elementToCreate = createEl("h1");
-    addNode(elementToAppend, elementToCreate, ["creepy-font"]);
-    elementToAppend.lastElementChild.innerHTML = "goose";
-
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl('#startPoint div');
-    addNode(elementToAppend, elementToCreate, ["d-grid", "gap-2", "col-md-8" , "mx-auto"]);
-
-    elementToCreate = createEl("button");
-    elementToAppend = searchEl('#startPoint div div:last-of-type');
-    addNode(elementToAppend, elementToCreate, ["btn", "btn-orange", "btn-lg", "creepy-font"]);
-    setButton(elementToAppend.lastElementChild, "btn-startKilling", "button", "Start Killing");
-
-    elementToCreate = createEl("button");
-    addNode(elementToAppend, elementToCreate, ["btn", "btn-purple", "btn-lg", "creepy-font" ]);
-    setButton(elementToAppend.lastElementChild, "btn-addSacrifices", "button", "Add Sacrifices");
-
-    elementToCreate = createEl("div");
-    addNode(elementToAppend, elementToCreate, ["mx-auto"]);
-    
-    elementToCreate = createEl("p");
-    elementToAppend = searchEl('#startPoint div div:last-of-type div');
-    addNode(elementToAppend, elementToCreate, ["text-color-moon"]);
-    elementToAppend.lastElementChild.innerHTML = "Coders still Alive";
-
-};
-
-/* Handle clicks and called functions
-========================================================= */
-const handleClick = (element) => { // higher order function
-    switch (element.id){
-        case "mainContainer":
-            return () => {  
-                if(fogSetted === true){
-                    let removeFog = searchEl('#mainContainer .fog-container');
-                    audioFogHorn.pause();
-                    removeFog.classList.add("puff-out-hor");
-                    fogSetted = false;
-                    setTimeout(() => {
-                        removeFog.remove();
-                    }, 1000);
-                }  
-            };
-
-        case "btn-startKilling":
-            return () => {  
-                if(addPlayersClicked){
-                    hideForm();
-                    addPlayersClicked=false;
-                }
-                removeContent(searchEl("#startPoint"));   
-                startKilling();                
-            };
-            
-        case "btn-killSomeone":
-            return () => {       
-                let deadPerson = killSomeone();
-                crossDead(deadPerson);               
-            };
-        
-        case "btn-addSacrifices":
-            return () => {   
-                if(addPlayersClicked){
-                    element.innerHTML = "add sacrifices";
-                    hideForm();
-                    addPlayersClicked=false;
-                }
-                else{
-                    element.innerHTML = "end ritual";
-                    showForm();
-                    addPlayersClicked=true;
-                }
-                
-            };
-
-        case "btn-play":
-            return () => {       
-                owl.trigger('play.owl.autoplay',[1000])              
-            };
-
-        case "btn-pause":
-            return () => {       
-                owl.trigger('stop.owl.autoplay')             
-            };
-    } 
-};
-
-/* Handle sumbits and called functions
-========================================================= */
-const handleSubmit = (element) => { // higher order function
-    console.log(element)
-    e.preventDefault();
-    switch (element.id){
-        case "formAddSacrifice":
-            return () => {  
-                addSacrifice(element);
-            };
-    };
-};
+}
 
 //function for starting game 
 const startKilling = () => {
-    let elementToCreate;
-    let elementToAppend;
+    let count = 0;
 
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl('#startPoint');
-    addNode(elementToAppend, elementToCreate, ["container-md"]);
-
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl("#startPoint .container-md");
-    addNode(elementToAppend, elementToCreate, ["row"]);
-
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl("#startPoint .container-md .row");
-    addNode(elementToAppend, elementToCreate, ["col-md-6"])
-    elementToCreate = createEl("div");
-    addNode(elementToAppend, elementToCreate, ["col-md-6"])
-
-    elementToCreate = createEl("ul");
-    elementToAppend = searchEl("#startPoint .container-md .row .col-md-6:first-of-type");
-    
-    addNode(elementToAppend, elementToCreate, ["list-group", "list-group-flush"]);
-
-    elementToAppend = searchEl("#startPoint .container-md .row .col-md-6:first-of-type ul");
-    sacrifices.forEach(el => {
-        elementToCreate = createEl("li");
-        addNode(elementToAppend, elementToCreate, ["list-group-item"])
-        elementToAppend.lastElementChild.innerHTML = `${el.name} ${el.surnames.surnameOne}`;
+    sacrifices.forEach(el => {          //create dom elements with the data from sacrifices
+        playView.push(new DomElement("listKillItem" + count, "#listToKill", "li", ["list-group-item"], `${el.name} ${el.surnames.surnameOne}`));
+        playView.push(new DomElement("itemCarousel" + count, "#owlCarousel", "div"));
+        playView.push(new DomElement("imgCarousel" + count, "#owlCarousel div:last-of-type", "img", ["img-fluid"]));
+        count++;
     });
 
-    elementToCreate = createEl("button");
-    elementToAppend = searchEl("#startPoint .container-md .row .col-md-6:last-of-type");
-    addNode(elementToAppend, elementToCreate, ["btn", "btn-orange", "creepy-font"]);
+    drawScreen(playView);
 
-    setButton(elementToAppend.lastElementChild , "btn-killSomeone", "button", "Kill Someone");
+    searchEl("#duckKiller").setAttribute("src", "../media/icons/killingFloor/DuckTheKiller-Orange.svg")
 
-    elementToCreate = createEl("button");
-    elementToAppend = searchEl("#startPoint .container-md .row .col-md-6:last-of-type");
-    addNode(elementToAppend, elementToCreate, ["btn", "btn-purple", "creepy-font"]);
+    setOwlCarousel();           //set carousel info
+}
 
-    setButton(elementToAppend.lastElementChild , "btn-play", "button", "Play");
-
-    elementToCreate = createEl("button");
-    elementToAppend = searchEl("#startPoint .container-md .row .col-md-6:last-of-type");
-    addNode(elementToAppend, elementToCreate, ["btn", "btn-orange", "creepy-font"]);
-
-    setButton(elementToAppend.lastElementChild , "btn-pause", "button", "Stop");
-
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl("#startPoint .container-md");
-    addNode(elementToAppend, elementToCreate, ["owl-carousel"]);
-
-    let imgToAppend;
-    elementToAppend = searchEl("#startPoint .container-md .owl-carousel");
-    sacrifices.forEach(el => {
-        elementToCreate = createEl("div");
-        addNode(elementToAppend, elementToCreate, [])
-
-        imgToAppend = searchEl("#startPoint .container-md .owl-carousel div:last-of-type");
-        elementToCreate = createEl("img");
-        addNode(imgToAppend, elementToCreate, ["img-fluid"])
-        imgToAppend.lastElementChild.setAttribute("src", "./media/images/index/pumpkin.png");
-    });
-
-    owl = $('.owl-carousel');
+const setOwlCarousel = () => {
+    owl = $('#owlCarousel');
 
     owl.owlCarousel({
         items:4,
@@ -254,15 +177,6 @@ const startKilling = () => {
         autoplayTimeout:1000,
         autoplayHoverPause:true
     });
-
-    elementToCreate = createEl("div");
-    elementToAppend = searchEl("#startPoint div");
-    addNode(elementToAppend, elementToCreate, ["row"]);
-
-    elementToCreate = createEl("img");
-    elementToAppend = searchEl("#startPoint div .row:last-of-type");
-    addNode(elementToAppend, elementToCreate, ["img-fluid"]);
-    elementToAppend.firstElementChild.setAttribute("src", "../media/icons/killingFloor/DuckTheKiller-Orange.svg")
 }
 
 //function to kill a coder at random
@@ -301,30 +215,32 @@ const searchEl = (selector) => {
 }
 
 //function to append node to DOM and store in classes at array
-const addNode = (eta, etc, stringClass) => {
+const addNodes = (obj) => {
+    let etc= createEl(obj.elementToCreate);
+    let eta = searchEl(obj.elementToAppend);
+
     eta.appendChild(etc);
-    for (let i = 0; i < stringClass.length; i++) {
-        eta.lastElementChild.classList.add(stringClass[i]);
+
+    eta.lastElementChild.setAttribute("id", obj.id);
+
+    if(obj.classArray){
+        for (let i = 0; i < obj.classArray.length; i++) {
+            eta.lastElementChild.classList.add(obj.classArray[i]);
+        }
+    }
+    
+    if(obj.elementToCreate == "button"){
+        eta.lastElementChild.setAttribute("type", obj.type);
+        eta.lastElementChild.addEventListener("click", handleClick(eta.lastElementChild));
+    }
+    else if(obj.elementToCreate == "img"){
+        eta.lastElementChild.setAttribute("src", "./media/images/index/pumpkin.png");
+    }
+
+    if(obj.text){
+        eta.lastElementChild.innerHTML = obj.text;
     }
 }
-
-//function to give attributes to button components
-const setButton = (el, id, type, text) => {
-    el.setAttribute("id", id);
-    el.setAttribute("type", type);
-    el.innerHTML = text;
-    el.addEventListener("click", handleClick(el));
-    
-    
-}
-
-//function to give popover attribute to button
-/*const setPopOver = (el) => {
-    el.setAttribute("data-bs-container", "body");
-    el.setAttribute("data-bs-toggle", "popover");
-    el.setAttribute("data-bs-placement", "top");
-    el.setAttribute("data-html", "true");
-}*/
 
 //function to remove childs of components
 const removeContent = (el) => {
@@ -359,21 +275,7 @@ const hideForm = () => {
     formElement.classList.add("d-none")
 }
 
-
-
-
-/* Functions to wait to element creation
-========================================================= */
-
-/*function waitUntilElementLoad(selector,  delay) {
-    if(document.querySelector(selector) != null){
-        // element found; do something
-    } else setTimeout(()=>waitUntilElementLoad(selector, delay), delay);
-}*/
-
-
 //function delete coders
-
 const deleteSacrifice = (object) => {
     for (let i = 0; i < sacrifices.length; i++) {
         if(object.id == sacrifices[i].id){
@@ -382,7 +284,3 @@ const deleteSacrifice = (object) => {
         }        
     }        
 }
-
-//function animation jumping duck 
-
-
