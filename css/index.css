@@ -54,32 +54,32 @@ div h1 {
 }
 
 @media (max-width: 576px) {
-  #startPoint .container-md .d-grid {
+  #startPoint .container-md #gridBtn {
     margin-top: 80%;
   }
 }
 @media (min-width: 768px) {
-  #startPoint .container-md .d-grid {
+  #startPoint .container-md #gridBtn {
     margin-top: 25.5%;
   }
 }
 @media (min-width: 992px) {
-  #startPoint .container-md .d-grid {
+  #startPoint .container-md #gridBtn {
     margin-top: 17.5%;
   }
 }
 @media (min-width: 1200px) {
-  #startPoint .container-md .d-grid {
+  #startPoint .container-md #gridBtn {
     margin-top: 20%;
   }
 }
 @media (min-width: 1400px) {
-  #startPoint .container-md .d-grid {
+  #startPoint .container-md #gridBtn {
     margin-top: 12.5%;
   }
 }
 @media (min-width: 1600px) {
-  #startPoint .container-md .d-grid {
+  #startPoint .container-md #gridBtn {
     margin-top: 15%;
   }
 }

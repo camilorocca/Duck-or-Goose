@@ -1,19 +1,6 @@
 import { sacrifices } from "./variables.js";
 import { mainTitle, playView } from "./virtualDOM.js";
 
-//constructor for new sacrifices
-function Sacrifice(id, name, surnames, age, born) {
-    this.id = id;
-    this.name = name;
-    this.surnames = { 
-        surnameOne: surnames.surnameOne,
-        surnameTwo: surnames.surnameTwo,
-    };
-    this.age = age;
-    this.born = born;
-    this.killed = false;
-}
-
 //constructor for new DOM element
 function DomElement(id, elementToAppend, elementToCreate, ...rest) {
     this.id = id;
@@ -31,6 +18,8 @@ let addPlayersClicked =false;
 //owl carousel initial variables
 let owl;
 let btnTimeID;
+
+let position;
 
 /* On load functions
 ========================================================= */
@@ -103,13 +92,13 @@ const handleClick = (element) => {
             };
 
         case "btn-play":
-            return () => {          //play carousel       
-                owl.trigger('play.owl.autoplay',[1000])              
+            return () => {          //play carousel   
+                owl.trigger('next.owl.carousel')              
             };
 
         case "btn-pause":
             return () => {          // pause carousel       
-                owl.trigger('stop.owl.autoplay')             
+                owl.trigger('prev.owl.carousel')             
             };
     } 
 };
@@ -134,13 +123,19 @@ const setFormEventListener = () => {
         
         switch (form.id){
             case "formAddSacrifice":
-                let id = sacrifices.length; //this method will give problems in delete function
-                let surnames = {
+                const surnames = {
                     surnameOne: form[1].value,
                     surnameTwo: ""
                     }
-    
-                sacrifices.push(new Sacrifice(id, form[0].value, surnames, 0, ""));
+                const obj = {
+                                id: sacrifices.length, 
+                                name: form[0].value, 
+                                surnames, 
+                                age: 0, 
+                                born: "", 
+                                killed: false
+                            };
+                sacrifices.push(obj);
 
                 console.log(sacrifices)
             break;
@@ -150,13 +145,11 @@ const setFormEventListener = () => {
 
 //function for starting game 
 const startKilling = () => {
-    let count = 0;
-
-    sacrifices.forEach(el => {          //create dom elements with the data from sacrifices
-        playView.push(new DomElement("listKillItem" + count, "#listToKill", "li", ["list-group-item"], `${el.name} ${el.surnames.surnameOne}`));
-        playView.push(new DomElement("itemCarousel" + count, "#owlCarousel", "div"));
-        playView.push(new DomElement("imgCarousel" + count, "#owlCarousel div:last-of-type", "img", ["img-fluid"]));
-        count++;
+     //create dom elements with the data from sacrifices
+    sacrifices.forEach(el => {  
+        playView.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item"], `${el.name} ${el.surnames.surnameOne}`));
+        playView.push(new DomElement("itemCarousel" + el.id, "#owlCarousel", "div"));
+        playView.push(new DomElement("imgCarousel" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid"], `${el.name}`));
     });
 
     drawScreen(playView);
@@ -170,35 +163,36 @@ const setOwlCarousel = () => {
     owl = $('#owlCarousel');
 
     owl.owlCarousel({
-        items:4,
+        items:5,
         loop:true,
         margin:10,
         autoplay:false,
-        autoplayTimeout:1000,
-        autoplayHoverPause:true
+        onTranslated: callback
     });
+}
+
+function callback(event){
+    position = event.item.index;    
+    console.log(event.item.count);
 }
 
 //function to kill a coder at random
 const killSomeone = () => {
-    let stillAlive = 0;
-    sacrifices.forEach(el => {
-        if(el.killed === false){
-            stillAlive++;
-        }
-    });
-    let indexToKill = Math.floor(Math.random() * (stillAlive + 1));
-    let stillAliveArray = sacrifices.filter(obj => obj.killed === false);
-    
-    let kill = stillAliveArray[indexToKill]["id"];
+    let movements =  Math.floor(Math.random() * (7 - 2) + 2); 
 
-    sacrifices.forEach(el => {
-        if(el.id === kill){
-            el.killed = true;
-        }
-    });
+    for (let i = 0; i < movements; i++) {
+        owl.trigger('next.owl.carousel')   
+    }
 
-    return stillAliveArray[indexToKill];
+    let coderToKill = searchEl("#owlCarousel .active:first-of-type");
+    console.log(coderToKill)
+    let indexToKill = coderToKill[id].slice(-1);
+
+    sacrifices[indexToKill].killed = true
+
+    owl.trigger('remove.owl.carousel', [position+2]).trigger('refresh.owl.carousel');
+
+    return sacrifices[coderToKill.id.slice(-1)];
 }
 
 /* Functions to alter DOM
@@ -252,7 +246,6 @@ const removeContent = (el) => {
 //function to cross names in list
 const crossDead = (obj) => {
     let liElements = document.querySelectorAll("#startPoint li");
-    console.log(liElements)
     liElements.forEach(el => {
         if(el.innerHTML == `${obj.name} ${obj.surnames.surnameOne}`){
             el.setAttribute('style', 'text-decoration: line-through');
