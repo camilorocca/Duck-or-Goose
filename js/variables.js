@@ -8,7 +8,8 @@ export let sacrifices = [
         },
         age: 28,
         born: "1994 - ?",
-        killed: false
+        killed: false,
+        img: "./media/icons/killingFloor/DuckTheKiller-Orange.svg"
     },
     {
         id: 1,

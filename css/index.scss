@@ -47,7 +47,7 @@ div{
 #startPoint{
     
     .container-md{
-        .d-grid{
+        #gridBtn{
             @include for-size(phone,down) {
                 margin-top:80%;
                 }
