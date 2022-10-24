@@ -77,7 +77,9 @@ const handleClick = (element) => {
                 searchEl("#duckKiller").classList.add("wobble-ver-left");
                 let deadPerson = killSomeone();
                 crossDead(deadPerson);
-                searchEl("#splatter").classList.remove("d-none")
+                searchEl("#splatter").classList.remove("d-none");
+                let audioDuck = new Audio('../media/audio/pato2.mp3');
+                audioDuck.play();
             };
 
         case "btn-addSacrifices":
