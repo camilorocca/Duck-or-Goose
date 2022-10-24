@@ -5,7 +5,8 @@
 ********************************/
 
 html,
-body, section {
+body,
+section {
     margin: 0;
     padding: 0;
 }
@@ -17,6 +18,7 @@ body, section {
     border-radius: 50px;
     pointer-events: auto;
 }
+
 .btn-purple {
     background-color: $primary-color;
     color: $moon-color;
@@ -28,53 +30,85 @@ body, section {
 }
 
 .creepy-font {
-    font-family: $font-main!important;
+    font-family: $font-main !important;
 }
+
 
 /********************************
 ***        START POINT        ***
 ********************************/
-div{
-    h1{
+
+#splatter {
+    right: 0;
+    background: url("../media/images/index/blood-orange 1.png");
+    background-repeat: no-repeat;
+    overflow-x: auto;
+    overflow-y: scroll;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    top: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+div {
+    h1 {
         font-size: 3rem;
-        @include for-size(tablet,up) {
+        @include for-size(tablet,
+        up) {
             font-size: 5rem;
             text-align: center;
         }
     }
 }
 
-#startPoint{
-    
-    .container-md{
-        #gridBtn{
-            @include for-size(phone,down) {
-                margin-top:80%;
-                }
-            @include for-size(tablet,up) {
-                margin-top:25.5%;
+#startPoint {
+    .container-md {
+        #gridBtn {
+            @include for-size(phone,
+            down) {
+                margin-top: 80%;
             }
-            @include for-size(tablet-lg,up) {
-                margin-top:17.5%;
+
+            @include for-size(tablet, up) {
+                margin-top: 25.5%;
             }
-            @include for-size(desktop,up) {
-                margin-top:20%;
+            @include for-size(tablet-lg,
+            up) {
+                margin-top: 17.5%;
             }
-            @include for-size(desktop-lg,up) {
-                margin-top:12.5%;
+            @include for-size(desktop,
+            up) {
+                margin-top: 20%;
             }
-            @include for-size(desktop-xl,up) {
-                margin-top:15%;
+            @include for-size(desktop-lg,
+            up) {
+                margin-top: 12.5%;
+            }
+
+            
+            @include for-size(desktop-xl, up) {
+
+                margin-top: 15%;
             }
         }
     }
 }
 
+
 /********************************
 ***      FORM ADDPLAYERS      ***
 ********************************/
 
-.background-papyrus{
+.background-papyrus {
     right: 0;
     background: url("../../../media/images/index/background-papyrus.png");
         background-repeat: no-repeat;
@@ -110,68 +144,65 @@ div{
             margin-top: 40%
         }
     }
-    }
 }
-
-
-
+}
 
 /********************************
 ***       FOG ANIMATION       ***
 ********************************/
 
-.spooky-container{
+.spooky-container {
     position: relative;
     height: 100vh;
     width: 100%;
-    background:#fff;
-
+    background: #fff;
     .background-img-container {
         background: url("../media/images/index/background-start.png");
         background-position: 50%;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         background-size: cover;
-        overflow-y:scroll; 
-        overflow-x:hidden; 
+        overflow-y: scroll;
+        overflow-x: hidden;
         position: absolute;
-        top:0;
-        left:0%;
+        top: 0;
+        left: 0%;
         height: 100%;
-        width:100%;
-        z-index:0;
-        @include for-size(desktop-xl,up) {
+        width: 100%;
+        z-index: 0;
+
+        @include for-size(desktop-xl, up) {
             background-size: cover;
-            }
-            @include for-size(phone,down) {
-                background-position-x: 85%;
-                }
+        }
+
+        @include for-size(phone, down) {
+            background-position-x: 85%;
+        }
 
         .fog-container {
-            position:absolute;
+            position: absolute;
             width: 100%;
-            height:100%;
+            height: 100%;
             overflow: hidden;
             z-index: 1;
 
-            .img-area{
+            .img-area {
                 position: absolute;
                 height: 100vh;
-                width:300vw;
+                width: 300vw;
                 z-index: 2;
             }
-            
-            .fog{
-                background: url("../../../media/images/index/fog-1.png");
+
+            .fog {
+                background: url("../media/images/index/fog-1.png");
                 background-repeat: repeat-x;
                 -webkit-background-size: contain;
                 background-size: contain;
                 background-position: center;
                 animation: animate 65s linear infinite;
             }
-            
-            .fog{
-                background: url("../../../media/images/index/fog-2.png");
+            .fog {
+                background: url("../media/images/index/fog-2.png");
                 background-repeat: repeat-x;
                 -webkit-background-size: contain;
                 background-size: contain;
@@ -179,6 +210,7 @@ div{
                 animation: animate 35s linear infinite;
             }
         }
+
         /*
         .update-area {
             display: -webkit-flex;
@@ -196,58 +228,146 @@ div{
         }*/
     }
 }
+
+
 /* Fog animation keyframes
 ========================================================= */
+
 @keyframes animate {
     0% {
-        transform: translate3d(0,0,0);
+        transform: translate3d(0, 0, 0);
     }
-
     100% {
-        transform: translate3d(-200vw,0,0);
+        transform: translate3d(-200vw, 0, 0);
     }
-    
 }
+
 
 /********************************
 ***     FOG-OUT ANIMATION     ***
 ********************************/
 
 .puff-out-hor {
-	-webkit-animation: puff-out-hor 2000ms cubic-bezier(0.165, 0.840, 0.440, 1.000) ;
-	        animation: puff-out-hor 2000ms cubic-bezier(0.165, 0.840, 0.440, 1.000) ;
+    -webkit-animation: puff-out-hor 2000ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    animation: puff-out-hor 2000ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
 }
 /* Fog-out animation keyframes
 ========================================================= */
+
 @-webkit-keyframes puff-out-hor {
     0% {
         -webkit-transform: scaleX(1);
-                transform: scaleX(1);
+        transform: scaleX(1);
         -webkit-filter: blur(0px);
-                filter: blur(0px);
+        filter: blur(0px);
         opacity: 1;
     }
+
     100% {
         -webkit-transform: scaleX(2);
-                transform: scaleX(2);
+        transform: scaleX(2);
         -webkit-filter: blur(4px);
-                filter: blur(4px);
+        filter: blur(4px);
         opacity: 0;
     }
 }
+
 @keyframes puff-out-hor {
     0% {
         -webkit-transform: scaleX(1);
-                transform: scaleX(1);
+        transform: scaleX(1);
         -webkit-filter: blur(0px);
-                filter: blur(0px);
+        filter: blur(0px);
         opacity: 1;
     }
+
     100% {
         -webkit-transform: scaleX(2);
-                transform: scaleX(2);
+        transform: scaleX(2);
         -webkit-filter: blur(4px);
-                filter: blur(4px);
+        filter: blur(4px);
         opacity: 0;
+    }
+}
+
+/********************************
+***     DUCK-KILL ANIMATION     ***
+********************************/
+.wobble-ver-left {
+    -webkit-animation: wobble-ver-left 1s steps(5, end) 1s infinite alternate-reverse both;
+    animation: wobble-ver-left 1s steps(5, end) 1s infinite alternate-reverse both;
+}
+
+/* duck-kill animation keyframes
+========================================================= */
+@-webkit-keyframes wobble-ver-left {
+
+    0%,
+    100% {
+        -webkit-transform: translateY(0) rotate(0);
+        transform: translateY(0) rotate(0);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+
+    15% {
+        -webkit-transform: translateY(-30px) rotate(-6deg);
+        transform: translateY(-30px) rotate(-6deg);
+    }
+
+    30% {
+        -webkit-transform: translateY(15px) rotate(6deg);
+        transform: translateY(15px) rotate(6deg);
+    }
+
+    45% {
+        -webkit-transform: translateY(-15px) rotate(-3.6deg);
+        transform: translateY(-15px) rotate(-3.6deg);
+    }
+
+    60% {
+        -webkit-transform: translateY(9px) rotate(2.4deg);
+        transform: translateY(9px) rotate(2.4deg);
+    }
+
+    75% {
+        -webkit-transform: translateY(-6px) rotate(-1.2deg);
+        transform: translateY(-6px) rotate(-1.2deg);
+    }
+}
+
+@keyframes wobble-ver-left {
+
+    0%,
+    100% {
+        -webkit-transform: translateY(0) rotate(0);
+        transform: translateY(0) rotate(0);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+
+    15% {
+        -webkit-transform: translateY(-30px) rotate(-6deg);
+        transform: translateY(-30px) rotate(-6deg);
+    }
+
+    30% {
+        -webkit-transform: translateY(15px) rotate(6deg);
+        transform: translateY(15px) rotate(6deg);
+    }
+
+    45% {
+        -webkit-transform: translateY(-15px) rotate(-3.6deg);
+        transform: translateY(-15px) rotate(-3.6deg);
+    }
+
+    60% {
+        -webkit-transform: translateY(9px) rotate(2.4deg);
+        transform: translateY(9px) rotate(2.4deg);
+    }
+
+    75% {
+        -webkit-transform: translateY(-6px) rotate(-1.2deg);
+        transform: translateY(-6px) rotate(-1.2deg);
     }
 }
