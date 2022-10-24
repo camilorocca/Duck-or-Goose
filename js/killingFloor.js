@@ -75,6 +75,7 @@ const handleClick = (element) => {
             return () => { //remove a player at random
                 let deadPerson = killSomeone();
                 crossDead(deadPerson);
+                searchEl("#splatter").classList.remove("d-none")
             };
 
         case "btn-addSacrifices":
@@ -155,7 +156,7 @@ const startKilling = () => {
     sacrifices.forEach(el => {
         setData.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item"], `${el.name} ${el.surnames.surnameOne}`));
         setData.push(new DomElement("itemCarousel" + el.id, "#owlCarousel", "div"));
-        setData.push(new DomElement("imgCarousel" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid"], `${el.name}`));
+        setData.push(new DomElement("imgCarousel" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid", "img-pumpking"], `${el.name}`));
     });
 
 
@@ -228,16 +229,17 @@ const addNodes = (obj) => {
     if (obj.classArray) {
         for (let i = 0; i < obj.classArray.length; i++) {
             eta.lastElementChild.classList.add(obj.classArray[i]);
+            if (obj.classArray[i] == "img-pumpking") {
+                eta.lastElementChild.setAttribute("src", "./media/images/index/pumpkin.png");
+            }
+
         }
     }
 
     if (obj.elementToCreate == "button") {
         eta.lastElementChild.setAttribute("type", obj.type);
         eta.lastElementChild.addEventListener("click", handleClick(eta.lastElementChild));
-    } else if (obj.elementToCreate == "img") {
-        eta.lastElementChild.setAttribute("src", "./media/images/index/pumpkin.png");
     }
-
     if (obj.text) {
         eta.lastElementChild.innerHTML = obj.text;
     }
