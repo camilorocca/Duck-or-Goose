@@ -134,12 +134,6 @@ div {
     }
 }
 
-        @include for-size(desktop-lg, up) {
-            left: 3.9%;
-        }
-
-        @include for-size(desktop-xl, up) {}
-
         #btn-closeAddPlayers {
             margin-top: 45%;
 
@@ -147,8 +141,6 @@ div {
                 margin-top: 40%;
             }
         }
-    }
-}
 
 /********************************
 ***       FOG ANIMATION       ***
