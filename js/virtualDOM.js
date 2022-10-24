@@ -1,5 +1,4 @@
-export let mainTitle = [
-    {
+export let mainTitle = [{
         id: "container",
         elementToAppend: "#startPoint",
         elementToCreate: "div",
@@ -36,7 +35,7 @@ export let mainTitle = [
         id: "gridBtn",
         elementToAppend: "#container",
         elementToCreate: "div",
-        classArray: ["d-grid", "gap-2", "col-md-8" , "mx-auto"]
+        classArray: ["d-grid", "gap-2", "col-md-8", "mx-auto"]
     },
     {
         id: "btn-startKilling",
@@ -56,8 +55,7 @@ export let mainTitle = [
     }
 ]
 
-export let playView = [
-    {
+export let playView = [{
         id: "container",
         elementToAppend: "#startPoint",
         elementToCreate: "div",
@@ -103,7 +101,7 @@ export let playView = [
         id: "btnKillGroup",
         elementToAppend: "#container",
         elementToCreate: "div",
-        classArray: ["d-grid", "gap-2", "col-md-8" , "mx-auto"]
+        classArray: ["d-grid", "gap-2", "col-md-8", "mx-auto"]
     },
     {
         id: "btn-killSomeone",
@@ -130,3 +128,6 @@ export let playView = [
         type: "button"
     }
 ]
+
+
+export let setData = []
