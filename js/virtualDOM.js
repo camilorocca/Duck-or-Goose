@@ -74,6 +74,18 @@ export let playView = [{
         classArray: ["img-fluid"]
     },
     {
+        id: "splatter",
+        elementToAppend: "#container",
+        elementToCreate: "div",
+        classArray: ["d-none"]
+    },
+    {
+        id: "splatterImg",
+        elementToAppend: "#splatter",
+        elementToCreate: "img",
+        classArray: ["img-fluid"]
+    },
+    {
         id: "owlCarousel",
         elementToAppend: "#container",
         elementToCreate: "div",
