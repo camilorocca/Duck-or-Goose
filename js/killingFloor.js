@@ -173,7 +173,7 @@ const setOwlCarousel = () => {
 
 function callback(event){
     position = event.item.index;    
-    console.log(event.item.count);
+    console.log(event.item.index);
 }
 
 //function to kill a coder at random
@@ -184,9 +184,9 @@ const killSomeone = () => {
         owl.trigger('next.owl.carousel')   
     }
 
-    let coderToKill = searchEl("#owlCarousel .active:first-of-type");
+    let coderToKill = searchEl("#owlCarousel .active div");
     console.log(coderToKill)
-    let indexToKill = coderToKill[id].slice(-1);
+    let indexToKill = coderToKill.id.slice(-1);
 
     sacrifices[indexToKill].killed = true
 

@@ -94,6 +94,7 @@ div h1 {
   overflow-x: auto;
   overflow-y: scroll;
   position: absolute;
+  background-position: 50% 10%;
   width: 100%;
   z-index: 0;
   top: 0;
@@ -101,33 +102,19 @@ div h1 {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   left: 50%;
   transform: translateX(-50%);
+  padding-left: 9%;
+  padding-right: 2%;
 }
 .background-papyrus #formAddSacrifice {
-  position: absolute;
+  position: fixed;
   margin-left: auto;
   margin-right: auto;
   top: 15%;
-  left: 0;
-}
-@media (max-width: 576px) {
-  .background-papyrus #formAddSacrifice {
-    left: 15%;
-  }
-}
-@media (min-width: 1200px) {
-  .background-papyrus #formAddSacrifice {
-    left: 3.5%;
-  }
-}
-@media (min-width: 1400px) {
-  .background-papyrus #formAddSacrifice {
-    left: 3.9%;
-  }
 }
 .background-papyrus #formAddSacrifice #btn-closeAddPlayers {
   margin-top: 45%;
@@ -148,7 +135,7 @@ div h1 {
   background: #fff;
 }
 .spooky-container .background-img-container {
-  background: url("../../../media/images/index/background-start.png");
+  background: url("../media/images/index/background-start.png");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;

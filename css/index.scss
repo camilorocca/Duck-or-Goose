@@ -81,6 +81,7 @@ div{
         overflow-x:auto; 
         overflow-y:scroll;
         position: absolute;
+        background-position: 50% 10%;
         width:100%;
         z-index:0;
         top:0;
@@ -88,37 +89,21 @@ div{
         width: 100%;
         height: 100vh;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
         flex-direction: column;
         left:50%;
         transform: translateX(-50%);
+        padding-left: 9%;
+        padding-right: 2%;
 
     #formAddSacrifice{
-        position: absolute;
+        
+        position: fixed;
         margin-left: auto;
         margin-right: auto;
         top: 15%;
-        left: 0;
-        @include for-size(phone,down) {
-            left:15%;
-        }
-    @include for-size(tablet,up) {
         
-    }
-    @include for-size(tablet-lg,up) {
-        
-    }
-    @include for-size(desktop,up) {
-        left:3.5%;
-    }
-    @include for-size(desktop-lg,up) {
-        left:3.9%
-        
-    }
-    @include for-size(desktop-xl,up) {
-        
-    }
     #btn-closeAddPlayers{
         margin-top: 45%;
         @include for-size(desktop-lg,up) {
@@ -142,7 +127,7 @@ div{
     background:#fff;
 
     .background-img-container {
-        background: url("../../../media/images/index/background-start.png");
+        background: url("../media/images/index/background-start.png");
         background-position: 50%;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
