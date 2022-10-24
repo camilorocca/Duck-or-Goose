@@ -14,7 +14,8 @@
 ***       COMMON STYLES       ***
 ********************************/
 html,
-body, section {
+body,
+section {
   margin: 0;
   padding: 0;
 }
