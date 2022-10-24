@@ -14,7 +14,8 @@
 ***       COMMON STYLES       ***
 ********************************/
 html,
-body, section {
+body,
+section {
   margin: 0;
   padding: 0;
 }
@@ -43,6 +44,27 @@ body, section {
 /********************************
 ***        START POINT        ***
 ********************************/
+#splatter {
+  right: 0;
+  background: url("../media/images/index/blood-orange 1.png");
+  background-repeat: no-repeat;
+  overflow-x: auto;
+  overflow-y: scroll;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  top: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 div h1 {
   font-size: 3rem;
 }
@@ -187,7 +209,7 @@ div h1 {
   z-index: 2;
 }
 .spooky-container .background-img-container .fog-container .fog {
-  background: url("../../../media/images/index/fog-1.png");
+  background: url("../media/images/index/fog-1.png");
   background-repeat: repeat-x;
   background-size: contain;
   background-position: center;
@@ -195,7 +217,7 @@ div h1 {
           animation: animate 65s linear infinite;
 }
 .spooky-container .background-img-container .fog-container .fog {
-  background: url("../../../media/images/index/fog-2.png");
+  background: url("../media/images/index/fog-2.png");
   background-repeat: repeat-x;
   background-size: contain;
   background-position: center;
@@ -253,5 +275,57 @@ div h1 {
     transform: scaleX(2);
     filter: blur(4px);
     opacity: 0;
+  }
+}
+/********************************
+***     DUCK-KILL ANIMATION     ***
+********************************/
+.wobble-ver-left {
+  -webkit-animation: wobble-ver-left 1s steps(5, end) 1s infinite alternate-reverse both;
+  animation: wobble-ver-left 1s steps(5, end) 1s infinite alternate-reverse both;
+}
+
+/* duck-kill animation keyframes
+========================================================= */
+@-webkit-keyframes wobble-ver-left {
+  100% {
+    transform: translateY(0) rotate(0);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateY(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateY(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateY(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateY(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-1.2deg);
+  }
+}
+@keyframes wobble-ver-left {
+  100% {
+    transform: translateY(0) rotate(0);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateY(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateY(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateY(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateY(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(-1.2deg);
   }
 }/*# sourceMappingURL=index.css.map */
