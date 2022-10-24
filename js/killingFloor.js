@@ -72,7 +72,9 @@ const handleClick = (element) => {
             };
 
         case "btn-killSomeone":
-            return () => { //remove a player at random
+
+            return () => {          //remove a player at random
+                searchEl("#duckKiller").classList.add("wobble-ver-left");
                 let deadPerson = killSomeone();
                 crossDead(deadPerson);
             };
@@ -234,8 +236,9 @@ const addNodes = (obj) => {
     if (obj.elementToCreate == "button") {
         eta.lastElementChild.setAttribute("type", obj.type);
         eta.lastElementChild.addEventListener("click", handleClick(eta.lastElementChild));
-    } else if (obj.elementToCreate == "img") {
-        eta.lastElementChild.setAttribute("src", "./media/images/index/pumpkin.png");
+    }
+    else if(obj.elementToCreate == "img"){
+        eta.lastElementChild.setAttribute("src", "../media/images/index/pumpkin.png");
     }
 
     if (obj.text) {
