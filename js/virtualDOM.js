@@ -55,17 +55,18 @@ export let mainTitle = [{
     }
 ]
 
-export let playView = [{
+export let playView = [
+    {
         id: "container",
         elementToAppend: "#startPoint",
         elementToCreate: "div",
-        classArray: ["container-md"]
+        classArray: ["container-md", "fixed-bottom", "mb-5"]
     },
     {
         id: "rowDuckKiller",
         elementToAppend: "#container",
         elementToCreate: "div",
-        classArray: ["row"]
+        classArray: ["col-6", "mx-auto",]
     },
     {
         id: "duckKiller",
@@ -73,18 +74,7 @@ export let playView = [{
         elementToCreate: "img",
         classArray: ["img-fluid"]
     },
-    {
-        id: "splatter",
-        elementToAppend: "#container",
-        elementToCreate: "div",
-        classArray: ["d-none"]
-    },
-    {
-        id: "splatterImg",
-        elementToAppend: "#splatter",
-        elementToCreate: "img",
-        classArray: ["img-fluid"]
-    },
+
     {
         id: "owlCarousel",
         elementToAppend: "#container",
@@ -138,6 +128,12 @@ export let playView = [{
         classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
         text: "Pause",
         type: "button"
+    },
+    {
+        id: "splatter",
+        elementToAppend: ".background-img-container",
+        elementToCreate: "div",
+        classArray: ["d-none"]
     }
 ]
 
