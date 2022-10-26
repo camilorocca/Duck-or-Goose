@@ -31,6 +31,7 @@ section {
   background-color: #4A347D;
   color: #FDF0BB;
   border-radius: 50px;
+  pointer-events: auto;
 }
 
 .text-color-moon {
@@ -48,6 +49,10 @@ section {
   right: 0;
   background: url("../media/images/index/blood-orange 1.png");
   background-repeat: no-repeat;
+  background-position: 50% 10%;
+  width: 100%;
+  z-index: 100 !important;
+  top: 0;
   overflow-x: hidden;
   overflow-y: hidden;
   position: absolute;
@@ -61,7 +66,6 @@ section {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  left: 50%;
 }
 
 div h1 {
@@ -74,6 +78,55 @@ div h1 {
   }
 }
 
+.owl-carousel, .owl-item {
+  min-height: 60px !important;
+}
+@media (min-width: 576px) {
+  .owl-carousel, .owl-item {
+    min-height: 50px !important;
+  }
+}
+@media (min-width: 768px) {
+  .owl-carousel, .owl-item {
+    min-height: 100px !important;
+  }
+}
+@media (min-width: 992px) {
+  .owl-carousel, .owl-item {
+    min-height: 150px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .owl-carousel, .owl-item {
+    min-height: 200px !important;
+  }
+}
+@media (min-width: 1400px) {
+  .owl-carousel, .owl-item {
+    min-height: 200px !important;
+  }
+}
+
+#startPoint .container-md .img-pumpkin {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 2;
+}
+#startPoint .container-md .pumpkin-left {
+  -webkit-clip-path: polygon(0 0, 100% 0%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 0% 100%);
+  -webkit-animation: pumpkin-go-left 1s 1s;
+          animation: pumpkin-go-left 1s 1s;
+}
+#startPoint .container-md .pumpkin-right {
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+  -webkit-animation: pumpkin-go-right 1s 1s;
+          animation: pumpkin-go-right 1s 1s;
+}
 @media (max-width: 576px) {
   #startPoint .container-md #gridBtn {
     margin-top: 80%;
@@ -105,15 +158,87 @@ div h1 {
   }
 }
 
+.list-group-item {
+  border: none !important;
+  color: #9071B5;
+}
+
+@-webkit-keyframes pumpkin-go-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100px) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes pumpkin-go-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100px) translateY(-30px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes pumpkin-go-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px) translateY(30px);
+    opacity: 0;
+  }
+}
+@keyframes pumpkin-go-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px) translateY(30px);
+    opacity: 0;
+  }
+}
 /********************************
 ***      FORM ADDPLAYERS      ***
 ********************************/
+.centered {
+  position: absolute;
+  font-size: 0.75rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FDF0BB;
+  font-family: "theHalloween" !important;
+}
+
 .background-papyrus {
   right: 0;
   background: url("../../../media/images/index/background-papyrus.png");
   background-repeat: no-repeat;
   overflow-x: auto;
-  overflow-y: scroll;
+  overflow-y: visible;
   position: absolute;
   background-position: 50% 10%;
   width: 100%;
@@ -128,14 +253,14 @@ div h1 {
   flex-direction: column;
   left: 50%;
   transform: translateX(-50%);
-  padding-left: 9%;
-  padding-right: 2%;
 }
 .background-papyrus #formAddSacrifice {
+  padding-left: 20%;
   position: fixed;
   margin-left: auto;
   margin-right: auto;
   top: 15%;
+  pointer-events: auto;
 }
 .background-papyrus #formAddSacrifice #btn-closeAddPlayers {
   margin-top: 45%;
@@ -143,6 +268,76 @@ div h1 {
 @media (min-width: 1400px) {
   .background-papyrus #formAddSacrifice #btn-closeAddPlayers {
     margin-top: 40%;
+  }
+}
+.background-papyrus #formAddSacrifice #rowKill {
+  font-family: "theHalloween" !important;
+  position: absolute;
+  padding-left: 15%;
+  margin-top: 35%;
+  overflow: auto;
+  height: 200px;
+}
+
+@media (max-width: 576px) {
+  #rowDuckKiller {
+    padding-top: 55%;
+  }
+}
+@media (min-width: 768px) {
+  #rowDuckKiller {
+    margin-top: 25.5%;
+  }
+}
+@media (min-width: 992px) {
+  #rowDuckKiller {
+    margin-top: 17.5%;
+  }
+}
+@media (min-width: 1200px) {
+  #rowDuckKiller {
+    margin-top: 20%;
+  }
+}
+@media (min-width: 1400px) {
+  #rowDuckKiller {
+    margin-top: 12.5%;
+  }
+}
+@media (min-width: 1600px) {
+  #rowDuckKiller {
+    margin-top: 15%;
+  }
+}
+
+@media (max-width: 576px) {
+  #carouselControls {
+    margin-top: 10%;
+  }
+}
+@media (min-width: 768px) {
+  #carouselControls {
+    margin-top: 25.5%;
+  }
+}
+@media (min-width: 992px) {
+  #carouselControls {
+    margin-top: 17.5%;
+  }
+}
+@media (min-width: 1200px) {
+  #carouselControls {
+    margin-top: 20%;
+  }
+}
+@media (min-width: 1400px) {
+  #carouselControls {
+    margin-top: 12.5%;
+  }
+}
+@media (min-width: 1600px) {
+  #carouselControls {
+    margin-top: 15%;
   }
 }
 
@@ -326,5 +521,31 @@ div h1 {
   }
   75% {
     transform: translateY(-6px) rotate(-1.2deg);
+  }
+}
+.scale-up-center {
+  -webkit-animation: scale-up-center 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
+  animation: scale-up-center 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
+}
+
+/**
+* ----------------------------------------
+* animation scale-up-center
+* ----------------------------------------
+*/
+@-webkit-keyframes scale-up-center {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }/*# sourceMappingURL=index.css.map */
