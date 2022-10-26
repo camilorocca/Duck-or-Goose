@@ -1,9 +1,5 @@
 import { sacrifices } from "./variables.js";
-<<<<<<< HEAD
 import { mainTitle, playView, setData, listData } from "./virtualDOM.js";
-=======
-import { mainTitle, playView, setData, setList } from "./virtualDOM.js";
->>>>>>> 58441d93ca8f7b5a8ce4d1a2872c253db16d64f5
 
 
 //constructor for new DOM element
