@@ -176,6 +176,7 @@ const startKilling = () => {
     sacrifices.forEach(el => {
         setData.push(new DomElement("itemCarousel" + el.id, "#owlCarousel", "div"));
         setData.push(new DomElement("imgCarousel" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid", "img-pumpking"], `${el.name}`));
+        setData.push(new DomElement("imgCarouselSection" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid", "img-pumpking"], `${el.name}`));
     });
 
 
@@ -209,7 +210,7 @@ const killSomeone = () => {
     let movements = Math.floor(Math.random() * (7 - 2) + 2);
 
     for (let i = 0; i < movements; i++) {
-        owl.trigger('next.owl.carousel')
+        owl.trigger('next.owl.carousel');
     }
 
     let coderToKill = searchEl("#owlCarousel .active div");
@@ -222,11 +223,16 @@ const killSomeone = () => {
         if (el.id == indexToKill) {
             killedCoder = el;
             el.killed = true;
-        }
+        }        
     });
 
+    setTimeout(() => {
+        coderToKill.firstElementChild.classList.add("img1");
+        coderToKill.lastElementChild.classList.add("img2");
+    }, 1000*movements);
+   
     owl.trigger('remove.owl.carousel', [position]).trigger('refresh.owl.carousel');
-
+ 
     return killedCoder;
 }
 

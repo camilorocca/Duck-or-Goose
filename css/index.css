@@ -330,4 +330,75 @@ input {
   75% {
     transform: translateY(-6px) rotate(-1.2deg);
   }
+}
+.img1 {
+  -webkit-clip-path: polygon(0 0, 100% 0%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 0% 100%);
+  -webkit-animation: image1Anim 2s 1s;
+          animation: image1Anim 2s 1s;
+}
+
+.img2 {
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+  -webkit-animation: image2Anim 2s 1s;
+          animation: image2Anim 2s 1s;
+}
+
+@-webkit-keyframes image1Anim {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100px) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes image1Anim {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100px) translateY(-30px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes image2Anim {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px) translateY(30px);
+    opacity: 0;
+  }
+}
+@keyframes image2Anim {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px) translateY(30px);
+    opacity: 0;
+  }
 }/*# sourceMappingURL=index.css.map */
