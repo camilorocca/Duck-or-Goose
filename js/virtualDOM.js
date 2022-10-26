@@ -65,7 +65,7 @@ export let playView = [{
         id: "rowDuckKiller",
         elementToAppend: "#container",
         elementToCreate: "div",
-        classArray: ["row"]
+        classArray: ["col-6", "mx-auto"]
     },
     {
         id: "duckKiller",
@@ -78,12 +78,6 @@ export let playView = [{
         elementToAppend: "#container",
         elementToCreate: "div",
         classArray: ["d-none"]
-    },
-    {
-        id: "splatterImg",
-        elementToAppend: "#splatter",
-        elementToCreate: "img",
-        classArray: ["img-fluid"]
     },
     {
         id: "owlCarousel",

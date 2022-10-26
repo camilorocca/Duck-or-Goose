@@ -1,6 +1,6 @@
 export let sacrifices = [
     {
-        id: 0,
+        id: 1666682362204,
         name: "Adrián",
         surnames: {
             surnameOne: "Suñé",
@@ -12,7 +12,7 @@ export let sacrifices = [
         img: "./media/icons/killingFloor/DuckTheKiller-Orange.svg"
     },
     {
-        id: 1,
+        id: 1666682362205,
         name: "Albert",
         surnames: {
             surnameOne: "Arqués",
@@ -23,7 +23,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 2,
+        id: 1666682362206,
         name: "Alejandra",
         surnames: {
             surnameOne: "Morales",
@@ -34,7 +34,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 3,
+        id: 1666682362207,
         name: "Alejandro",
         surnames: {
             surnameOne: "Buriticá",
@@ -45,7 +45,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 4,
+        id: 1666682362208,
         name: "Alessandro",
         surnames: {
             surnameOne: "Arroyo",
@@ -56,7 +56,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 5,
+        id: 1666682362209,
         name: "Andrés Esteban",
         surnames: {
             surnameOne: "Patiño",
@@ -67,7 +67,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 6,
+        id: 1666682362210,
         name: "Camilo",
         surnames: {
             surnameOne: "Rocca",
@@ -78,7 +78,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 7,
+        id: 1666682362211,
         name: "Carla",
         surnames: {
             surnameOne: "Luppi",
@@ -89,7 +89,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 8,
+        id: 1666682362212,
         name: "Cristian Damaso",
         surnames: {
             surnameOne: "Calderon",
@@ -100,7 +100,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 9,
+        id: 1666682362213,
         name: "Eberth Isaac",
         surnames: {
             surnameOne: "Castro",
@@ -111,7 +111,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 10,
+        id: 1666682362214,
         name: "Eduard",
         surnames: {
             surnameOne: "",
@@ -122,7 +122,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 11,
+        id: 1666682362215,
         name: "Erick Andres",
         surnames: {
             surnameOne: "Crespin",
@@ -133,7 +133,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 12,
+        id: 1666682362216,
         name: "Federico Carlos",
         surnames: {
             surnameOne: "Gatti",
@@ -144,7 +144,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 13,
+        id: 1666682362217,
         name: "Francisco",
         surnames: {
             surnameOne: "Aguirre",
@@ -155,7 +155,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 14,
+        id: 1666682362218,
         name: "Gary",
         surnames: {
             surnameOne: "Huayhuasi",
@@ -166,7 +166,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 15,
+        id: 1666682362219,
         name: "Guillem",
         surnames: {
             surnameOne: "Martínez",
@@ -177,7 +177,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 16,
+        id: 1666682362220,
         name: "Ingrid",
         surnames: {
             surnameOne: "Barrachina",
@@ -188,7 +188,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 17,
+        id: 1666682362221,
         name: "Isabel",
         surnames: {
             surnameOne: "Santos",
@@ -199,7 +199,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 18,
+        id: 1666682362222,
         name: "Jerry",
         surnames: {
             surnameOne: "Aiyaniyo",
@@ -210,7 +210,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 19,
+        id: 1666682362223,
         name: "Jessica Alexandra",
         surnames: {
             surnameOne: "Jaramillo",
@@ -221,7 +221,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 20,
+        id: 1666682362224,
         name: "Judit",
         surnames: {
             surnameOne: "Calvet",
@@ -232,7 +232,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 21,
+        id: 1666682362225,
         name: "Lidia",
         surnames: {
             surnameOne: "Luque",
@@ -243,7 +243,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 22,
+        id: 1666682362226,
         name: "Mamadou",
         surnames: {
             surnameOne: "",
@@ -254,7 +254,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 23,
+        id: 1666682362227,
         name: "Mario Alberto",
         surnames: {
             surnameOne: "Valdés",
@@ -265,7 +265,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 24,
+        id: 1666682362228,
         name: "Mateo",
         surnames: {
             surnameOne: "Sandoval",
@@ -276,7 +276,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 25,
+        id: 1666682362229,
         name: "Oksana",
         surnames: {
             surnameOne: "Fedyukova",
@@ -287,7 +287,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 26,
+        id: 1666682362230,
         name: "Rocío",
         surnames: {
             surnameOne: "Cejudo",
@@ -298,7 +298,7 @@ export let sacrifices = [
         killed: false
     },
     {
-        id: 27,
+        id: 1666682362231,
         name: "Rodrigo",
         surnames: {
             surnameOne: "Fernández",
