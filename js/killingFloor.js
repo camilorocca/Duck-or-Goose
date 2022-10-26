@@ -1,5 +1,5 @@
 import { sacrifices } from "./variables.js";
-import { mainTitle, playView, setData } from "./virtualDOM.js";
+import { mainTitle, playView, setData, setList } from "./virtualDOM.js";
 
 
 //constructor for new DOM element
@@ -36,6 +36,11 @@ window.onload = (event) => {
     searchEl('#btn-remove').addEventListener("click", handleClick( searchEl('#btn-remove')));
 
     drawScreen(mainTitle);
+
+    sacrifices.forEach(el => {        
+        setList.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item"], `${el.name} ${el.surnames.surnameOne}`));
+        });
+        drawScreen(setList);
 };
 
 //draws the elements received from virtualDomJs
@@ -48,6 +53,13 @@ const drawScreen = (virtualDom) => {
 /* Handle clicks and called functions
 ========================================================= */
 const handleClick = (element) => {
+    if(element.nodeName == "LI"){
+        return() => {
+            element.remove()
+            let indexToKill = element.id.replace(/\D/g, "");
+            deleteSacrifice(indexToKill);
+        }
+    }
     switch (element.id) { //switch depending on button id
         case "mainContainer":
             return () => { //unset fog
@@ -166,7 +178,6 @@ const startKilling = () => {
 
     sacrifices.forEach(el => {
         setData.push(new DomElement("itemCarousel" + el.id, "#owlCarousel", "div"));
-        setData.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item"], `${el.name} ${el.surnames.surnameOne}`));
         setData.push(new DomElement("imgCarousel" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid", "img-pumpking"], `${el.name}`));
     });
 
@@ -262,6 +273,9 @@ const addNodes = (obj) => {
 
         }
     }
+    if(obj.elementToCreate == "li"){
+        eta.lastElementChild.addEventListener("click", handleClick(eta.lastElementChild));
+    }
 
     if (obj.elementToCreate == "button") {
         eta.lastElementChild.setAttribute("type", obj.type);
@@ -320,12 +334,17 @@ const deleteSacrifice = (idToRemove) => {
         if (`itemCarousel${idToRemove}` == setData[i].id) {
             setData.splice(i, 1);
         }
-        if(`listKillItem${idToRemove}` == setData[i].id){
-            setData.splice(i, 1);
-        }
+       
         if(`imgCarousel${idToRemove}` == setData[i].id){
             setData.splice(i, 1);
         }
+    };
+    for (let i = 0; i < setList.length; i++) {
+        if (`listKillItem${idToRemove}` == setList[i].id) {
+            setList.splice(i, 1);
+        }
+       
+ 
     };
 
     console.log(setData)
