@@ -48,8 +48,8 @@ section {
   right: 0;
   background: url("../media/images/index/blood-orange 1.png");
   background-repeat: no-repeat;
-  overflow-x: auto;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
   position: absolute;
   width: 100%;
   z-index: 0;
@@ -62,7 +62,7 @@ section {
   align-items: center;
   flex-direction: column;
   left: 50%;
-  transform: translateX(-50%); }
+}
 
 div h1 {
   font-size: 3rem;
@@ -110,11 +110,12 @@ div h1 {
 ********************************/
 .background-papyrus {
   right: 0;
-  background: url("../media/images/index/background-papyrus.png");
+  background: url("../../../media/images/index/background-papyrus.png");
   background-repeat: no-repeat;
   overflow-x: auto;
   overflow-y: scroll;
   position: absolute;
+  background-position: 50% 10%;
   width: 100%;
   z-index: 0;
   top: 0;
@@ -122,48 +123,25 @@ div h1 {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
   left: 50%;
   transform: translateX(-50%);
+  padding-left: 9%;
+  padding-right: 2%;
 }
 .background-papyrus #formAddSacrifice {
-  position: absolute;
+  position: fixed;
   margin-left: auto;
   margin-right: auto;
   top: 15%;
-  left: 0;
-}
-@media (max-width: 576px) {
-  .background-papyrus #formAddSacrifice {
-    left: 15%;
-  }
-}
-@media (min-width: 1200px) {
-  .background-papyrus #formAddSacrifice {
-    left: 3.5%;
-  }
-}
-@media (min-width: 1400px) {
-  .background-papyrus #formAddSacrifice {
-    left: 3.9%;
-  }
 }
 .background-papyrus #formAddSacrifice #btn-closeAddPlayers {
   margin-top: 45%;
 }
 @media (min-width: 1400px) {
   .background-papyrus #formAddSacrifice #btn-closeAddPlayers {
-    margin-top: 40%;
-  }
-}
-
-#btn-closeAddPlayers {
-  margin-top: 45%;
-}
-@media (min-width: 1400px) {
-  #btn-closeAddPlayers {
     margin-top: 40%;
   }
 }
@@ -309,7 +287,7 @@ div h1 {
 /* duck-kill animation keyframes
 ========================================================= */
 @-webkit-keyframes wobble-ver-left {
-  0%, 100% {
+  100% {
     transform: translateY(0) rotate(0);
     transform-origin: 50% 50%;
   }
@@ -330,7 +308,7 @@ div h1 {
   }
 }
 @keyframes wobble-ver-left {
-  0%, 100% {
+  100% {
     transform: translateY(0) rotate(0);
     transform-origin: 50% 50%;
   }
