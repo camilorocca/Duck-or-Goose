@@ -42,8 +42,8 @@ section {
     right: 0;
     background: url("../media/images/index/blood-orange 1.png");
     background-repeat: no-repeat;
-    overflow-x: auto;
-    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
     position: absolute;
     width: 100%;
     z-index: 0;
@@ -56,7 +56,7 @@ section {
     align-items: center;
     flex-direction: column;
     left: 50%;
-    transform: translateX(-50%);
+    
 }
 
 div {
@@ -230,6 +230,7 @@ div {
         }*/
 }
 }
+
 
 /* Fog animation keyframes
 ========================================================= */
