@@ -90,7 +90,10 @@ const handleClick = (element) => {
                 searchEl("#duckKiller").classList.add("wobble-ver-left");
                 let deadPerson = killSomeone();
                 crossDead(deadPerson);
-                searchEl("#splatter").classList.remove("d-none")
+                searchEl("#splatter").classList.remove("d-none");
+                setTimeout(() => {
+                    searchEl("#duckKiller").classList.remove("wobble-ver-left");
+                }, 5000);
             };
 
         case "btn-addSacrifices":
@@ -208,10 +211,19 @@ function callback(event){
 //function to kill a coder at random
 const killSomeone = () => {
     let movements = Math.floor(Math.random() * (7 - 2) + 2);
-
+    let positionSound 
     for (let i = 0; i < movements; i++) {
         owl.trigger('next.owl.carousel');
-    }
+        positionSound = Math.floor(Math.random() * (24 - 2) + 2);
+        let duckSound = []
+        for (let j = 0; j < positionSound; j++) {
+            duckSound[j]  = new Audio(`../media/audio/pato${positionSound}.mp3`);
+            console.log (duckSound[j]);
+            setTimeout (() => {
+                duckSound[j].play()
+            }, 5000);
+        };
+        }
 
     let coderToKill = searchEl("#owlCarousel .active div");
 
