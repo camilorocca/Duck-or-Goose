@@ -140,7 +140,13 @@ export let playView = [
         elementToAppend: ".background-img-container",
         elementToCreate: "div",
         classArray: ["d-none"]
-    }
+    },
+    {
+        id: "rowTombs",
+        elementToAppend: ".background-img-container",
+        elementToCreate: "div",
+        classArray: ["d-none"]
+   }
 ]
 
 

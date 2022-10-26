@@ -239,6 +239,8 @@ const killSomeone = () => {
 
     owl.trigger('remove.owl.carousel', [position]).trigger('refresh.owl.carousel');
 
+    searchEl("#rowTombs").classList.remove("d-none");
+
     return killedCoder;
 }
 
