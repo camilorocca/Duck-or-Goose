@@ -67,12 +67,11 @@ export let mainTitle = [{
     }
 ]
 
-export let playView = [
-    {
+export let playView = [{
         id: "container",
         elementToAppend: "#startPoint",
         elementToCreate: "div",
-        classArray: ["container-md", "fixed-bottom", "mb-5"]
+        classArray: ["container-md"]
     },
     {
         id: "rowDuckKiller",
@@ -131,12 +130,6 @@ export let playView = [
         classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
         text: "flee",
         type: "button"
-    },
-    {
-        id: "splatter",
-        elementToAppend: ".background-img-container",
-        elementToCreate: "div",
-        classArray: ["d-none"]
     }
 ]
 

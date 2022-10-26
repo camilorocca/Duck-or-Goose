@@ -42,7 +42,6 @@ section {
 #splatter {
     right: 0;
     background: url("../media/images/index/blood-orange 1.png");
-    position:absolute;
     background-repeat: no-repeat;
     background-position: 50% 10%;
     width:100%;
@@ -53,6 +52,7 @@ section {
     position: absolute;
     width: 100%;
     z-index: 0;
+    top: 0;
     pointer-events: none;
     width: 100%;
     height: 100vh;

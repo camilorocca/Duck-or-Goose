@@ -70,13 +70,6 @@ const handleRemove = (element) => {
 /* Handle clicks and called functions
 ========================================================= */
 const handleClick = (element) => {
-    if(element.nodeName == "LI"){
-        return() => {
-            element.remove()
-            let indexToKill = element.id.replace(/\D/g, "");
-            deleteSacrifice(indexToKill);
-        }
-    }
     switch (element.id) { //switch depending on button id
         case "mainContainer":
             return () => { //unset fog
@@ -289,7 +282,7 @@ function callback(event){
 const killSomeone = () => {
     
     let movements = Math.floor(Math.random() * (7 - 2) + 2);
-    let positionSound 
+
     for (let i = 0; i < movements; i++) {
         owl.trigger('next.owl.carousel', [300])
         owlNames.trigger('next.owl.carousel', [300])
@@ -383,9 +376,6 @@ const addNodes = (obj) => {
             }
 
         }
-    }
-    if(obj.elementToCreate == "li"){
-        eta.lastElementChild.addEventListener("click", handleClick(eta.lastElementChild));
     }
 
     if(obj.elementToCreate == "li"){
