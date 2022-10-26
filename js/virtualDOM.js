@@ -52,6 +52,24 @@ export let mainTitle = [{
         classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
         text: "Add Sacrifices",
         type: "button"
+    },
+    {
+        id: "rowKill",
+        elementToAppend: "#formAddSacrifice",
+        elementToCreate: "div",
+        classArray: ["row"]
+    },
+    {
+        id: "listKillCol",
+        elementToAppend: "#rowKill",
+        elementToCreate: "div",
+        classArray: ["col-md-12"]
+    },
+    {
+        id: "listToKill",
+        elementToAppend: "#listKillCol",
+        elementToCreate: "ul",
+        classArray: ["list-group", "list-group-flush"]
     }
 ]
 
@@ -85,24 +103,7 @@ export let playView = [{
         elementToCreate: "div",
         classArray: ["owl-carousel"]
     },
-    {
-        id: "rowKill",
-        elementToAppend: "#container",
-        elementToCreate: "div",
-        classArray: ["row"]
-    },
-    {
-        id: "listKillCol",
-        elementToAppend: "#rowKill",
-        elementToCreate: "div",
-        classArray: ["col-md-12"]
-    },
-    {
-        id: "listToKill",
-        elementToAppend: "#listKillCol",
-        elementToCreate: "ul",
-        classArray: ["list-group", "list-group-flush", "d-none"]
-    },
+
     {
         id: "btnKillGroup",
         elementToAppend: "#container",
@@ -137,3 +138,5 @@ export let playView = [{
 
 
 export let setData = []
+
+export let setList = []
