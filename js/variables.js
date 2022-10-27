@@ -57,7 +57,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362209,
-        name: "andres esteban",
+        name: "andres",
         surnames: {
             surnameOne: "patino",
             surnameTwo: "gomez"
@@ -90,7 +90,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362212,
-        name: "cristian damaso",
+        name: "cristian",
         surnames: {
             surnameOne: "calderon",
             surnameTwo: "rojas"
@@ -101,7 +101,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362213,
-        name: "eberth isaac",
+        name: "eberth",
         surnames: {
             surnameOne: "castro",
             surnameTwo: "campos"
@@ -114,8 +114,8 @@ export let sacrifices = [
         id: 1666682362214,
         name: "eduard",
         surnames: {
-            surnameOne: "",
-            surnameTwo: ""
+            surnameOne: "Molina",
+            surnameTwo: "Torres"
         },
         age: 28,
         born: "1994 - ?",
@@ -123,7 +123,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362215,
-        name: "erick andres",
+        name: "erick",
         surnames: {
             surnameOne: "crespin",
             surnameTwo: "ponce"
@@ -134,7 +134,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362216,
-        name: "federico carlos",
+        name: "federico",
         surnames: {
             surnameOne: "gatti",
             surnameTwo: "teijeiro"
@@ -211,7 +211,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362223,
-        name: "jessica alexandra",
+        name: "alexandra",
         surnames: {
             surnameOne: "jaramillo",
             surnameTwo: "moncada"
@@ -246,7 +246,7 @@ export let sacrifices = [
         id: 1666682362226,
         name: "mamadou",
         surnames: {
-            surnameOne: "",
+            surnameOne: "kadame",
             surnameTwo: ""
         },
         age: 28,
@@ -255,7 +255,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362227,
-        name: "mario alberto",
+        name: "mario",
         surnames: {
             surnameOne: "valdes",
             surnameTwo: "centurion"

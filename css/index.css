@@ -1,6 +1,12 @@
 /********************************
 ***            FONTS          ***
 ********************************/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  font-family: "Open Sans", serif;
+}
+
 @font-face {
   font-family: "theHalloween";
   src: url("../media/fonts/The_Halloween.ttf");
@@ -10,6 +16,10 @@
 ********************************/
 /* Media Queries simplified using Sass mixins
 ========================================================= */
+::-webkit-scrollbar {
+  display: none;
+}
+
 /********************************
 ***       COMMON STYLES       ***
 ********************************/
@@ -32,6 +42,10 @@ section {
   color: #FDF0BB;
   border-radius: 50px;
   pointer-events: auto;
+}
+
+.btn-padding {
+  padding: 2%;
 }
 
 .text-color-moon {
@@ -75,35 +89,6 @@ div h1 {
   div h1 {
     font-size: 5rem;
     text-align: center;
-  }
-}
-
-.owl-carousel, .owl-item {
-  min-height: 60px !important;
-}
-@media (min-width: 576px) {
-  .owl-carousel, .owl-item {
-    min-height: 50px !important;
-  }
-}
-@media (min-width: 768px) {
-  .owl-carousel, .owl-item {
-    min-height: 100px !important;
-  }
-}
-@media (min-width: 992px) {
-  .owl-carousel, .owl-item {
-    min-height: 150px !important;
-  }
-}
-@media (min-width: 1200px) {
-  .owl-carousel, .owl-item {
-    min-height: 200px !important;
-  }
-}
-@media (min-width: 1400px) {
-  .owl-carousel, .owl-item {
-    min-height: 200px !important;
   }
 }
 
@@ -160,7 +145,7 @@ div h1 {
 
 .list-group-item {
   border: none !important;
-  color: #9071B5;
+  color: black;
 }
 
 @-webkit-keyframes pumpkin-go-left {
@@ -225,15 +210,37 @@ div h1 {
 ********************************/
 .centered {
   position: absolute;
-  font-size: 0.75rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #FDF0BB;
   font-family: "theHalloween" !important;
+  font-size: 0.5rem;
+}
+@media (min-width: 768px) {
+  .centered {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 992px) {
+  .centered {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 768px) {
+  #btnKillGroup {
+    margin-top: 2%;
+    width: 40%;
+  }
+}
+@media (min-width: 992px) {
+  #btnKillGroup {
+    margin-top: 1%;
+  }
 }
 
 .background-papyrus {
+  font-family: "theHalloween";
   right: 0;
   background: url("../../../media/images/index/background-papyrus.png");
   background-repeat: no-repeat;
@@ -255,90 +262,37 @@ div h1 {
   transform: translateX(-50%);
 }
 .background-papyrus #formAddSacrifice {
-  padding-left: 20%;
   position: fixed;
   margin-left: auto;
   margin-right: auto;
-  top: 15%;
+  top: 12.5%;
   pointer-events: auto;
+  font-size: 0.75rem;
 }
-.background-papyrus #formAddSacrifice #btn-closeAddPlayers {
-  margin-top: 45%;
+.background-papyrus #formAddSacrifice input {
+  font-family: "Open Sans";
 }
-@media (min-width: 1400px) {
-  .background-papyrus #formAddSacrifice #btn-closeAddPlayers {
-    margin-top: 40%;
-  }
+.background-papyrus .rowKillAddPlayers {
+  margin-top: 5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 125px;
+  font-size: 0.6rem;
 }
-.background-papyrus #formAddSacrifice #rowKill {
-  font-family: "theHalloween" !important;
-  position: absolute;
-  padding-left: 15%;
-  margin-top: 35%;
-  overflow: auto;
-  height: 200px;
-}
-
-@media (max-width: 576px) {
-  #rowDuckKiller {
-    padding-top: 55%;
-  }
-}
-@media (min-width: 768px) {
-  #rowDuckKiller {
-    margin-top: 25.5%;
-  }
-}
-@media (min-width: 992px) {
-  #rowDuckKiller {
-    margin-top: 17.5%;
-  }
-}
-@media (min-width: 1200px) {
-  #rowDuckKiller {
-    margin-top: 20%;
-  }
-}
-@media (min-width: 1400px) {
-  #rowDuckKiller {
-    margin-top: 12.5%;
-  }
-}
-@media (min-width: 1600px) {
-  #rowDuckKiller {
-    margin-top: 15%;
-  }
+.background-papyrus .rowKillShowPlayers {
+  margin-top: 5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 185px;
+  font-size: 0.6rem;
 }
 
-@media (max-width: 576px) {
-  #carouselControls {
-    margin-top: 10%;
-  }
+.title-still-alive {
+  margin-top: 10%;
 }
-@media (min-width: 768px) {
-  #carouselControls {
-    margin-top: 25.5%;
-  }
-}
-@media (min-width: 992px) {
-  #carouselControls {
-    margin-top: 17.5%;
-  }
-}
-@media (min-width: 1200px) {
-  #carouselControls {
-    margin-top: 20%;
-  }
-}
-@media (min-width: 1400px) {
-  #carouselControls {
-    margin-top: 12.5%;
-  }
-}
-@media (min-width: 1600px) {
-  #carouselControls {
-    margin-top: 15%;
-  }
+
+#lastKilled {
+  font-size: 1.5rem;
 }
 
 /********************************
@@ -352,7 +306,7 @@ div h1 {
 }
 .spooky-container .background-img-container {
   background: url("../media/images/index/background-start.png");
-  background-position: 50%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow-y: scroll;
@@ -403,7 +357,7 @@ div h1 {
   z-index: 2;
 }
 .spooky-container .background-img-container .fog-container .fog {
-  background: url("../media/images/index/fog-1.png");
+  background: url("../media/images/index/extra-fog-1.png");
   background-repeat: repeat-x;
   background-size: contain;
   background-position: center;
@@ -411,7 +365,7 @@ div h1 {
           animation: animate 65s linear infinite;
 }
 .spooky-container .background-img-container .fog-container .fog {
-  background: url("../media/images/index/fog-2.png");
+  background: url("../media/images/index/extra-fog-2.png");
   background-repeat: repeat-x;
   background-size: contain;
   background-position: center;
@@ -547,5 +501,92 @@ div h1 {
   }
   100% {
     transform: scale(1);
+  }
+}
+/**************************************
+***     RESPONSIVE MEDIAQUERIES     ***
+**************************************/
+@media (max-width: 576px) {
+  #rowDuckKiller {
+    padding-top: 55%;
+  }
+}
+@media (min-width: 768px) {
+  #rowDuckKiller {
+    margin-top: 20%;
+  }
+}
+@media (min-width: 992px) {
+  #rowDuckKiller {
+    margin-top: 15%;
+  }
+}
+@media (min-width: 1200px) {
+  #rowDuckKiller {
+    margin-top: 20%;
+  }
+}
+@media (min-width: 1400px) {
+  #rowDuckKiller {
+    margin-top: 12.5%;
+  }
+}
+@media (min-width: 1600px) {
+  #rowDuckKiller {
+    margin-top: 15%;
+  }
+}
+
+@media (max-width: 576px) {
+  #carouselControls {
+    margin-top: 7%;
+  }
+}
+@media (min-width: 768px) {
+  #carouselControls {
+    margin-top: -2%;
+  }
+}
+@media (min-width: 1200px) {
+  #carouselControls {
+    margin-top: -7%;
+  }
+}
+
+#owlCarousel .owl-item {
+  min-height: 60px !important;
+}
+@media (min-width: 576px) {
+  #owlCarousel .owl-item {
+    min-height: 50px !important;
+  }
+}
+@media (min-width: 768px) {
+  #owlCarousel .owl-item {
+    min-height: 120px !important;
+  }
+}
+@media (min-width: 992px) {
+  #owlCarousel .owl-item {
+    min-height: 150px !important;
+  }
+}
+@media (min-width: 1200px) {
+  #owlCarousel .owl-item {
+    min-height: 200px !important;
+  }
+}
+@media (min-width: 1400px) {
+  #owlCarousel .owl-item {
+    min-height: 220px !important;
+  }
+}
+
+#owlCarouselNames .owl-item {
+  min-height: 20px !important;
+}
+@media (min-width: 992px) {
+  #owlCarouselNames .owl-item {
+    min-height: 25px !important;
   }
 }/*# sourceMappingURL=index.css.map */

@@ -57,7 +57,7 @@ export let mainTitle = [{
         id: "rowKill",
         elementToAppend: "#formAddSacrifice",
         elementToCreate: "div",
-        classArray: []
+        classArray: ["rowKillAddPlayers", "text-center"]
     },
     {
         id: "listToKill",
@@ -101,25 +101,25 @@ export let playView = [{
         id: "owlCarousel",
         elementToAppend: "#carouselControls",
         elementToCreate: "div",
-        classArray: ["owl-carousel", "pb-2"]
+        classArray: ["owl-carousel", "pb-1"]
     },
     {
         id: "owlCarouselNames",
         elementToAppend: "#carouselControls",
         elementToCreate: "div",
-        classArray: ["owl-carousel", "pb-5"]
+        classArray: ["owl-carousel", "pb-1"]
     },
     {
         id: "btnKillGroup",
         elementToAppend: "#carouselControls",
         elementToCreate: "div",
-        classArray: ["d-grid", "gap-2", "col-md-8", "mx-auto"]
+        classArray: ["d-grid", "gap-2", "mx-auto"]
     },
     {
         id: "btn-killSomeone",
         elementToAppend: "#btnKillGroup",
         elementToCreate: "button",
-        classArray: ["btn", "btn-orange", "btn-lg", "creepy-font"],
+        classArray: ["btn", "btn-orange", "btn-lg", "creepy-font", "btn-paddding"],
         text: "killSomeone",
         type: "button"
     },
@@ -127,7 +127,7 @@ export let playView = [{
         id: "btn-flee",
         elementToAppend: "#btnKillGroup",
         elementToCreate: "button",
-        classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
+        classArray: ["btn", "btn-purple", "btn-lg", "creepy-font", "btn-paddding"],
         text: "flee",
         type: "button"
     }

@@ -13,6 +13,7 @@ function DomElement(id, elementToAppend, elementToCreate, ...rest) {
 
 //checks for main title
 let audioFogHorn = new Audio('../media/audio/fogHorn.mp3');
+let audioKnife = new Audio('../media/audio/fx.mp3');
 let fogSetted = true;
 let addPlayersClicked = false;
 let killingInProgress = false;
@@ -39,6 +40,7 @@ window.onload = (event) => {
 
     drawScreen(mainTitle);
 
+
     fillList();
 
     
@@ -54,8 +56,18 @@ const drawScreen = (virtualDom) => {
 };
 
 const fillList = () => {
+    sacrifices.sort((a, b) => a.name.localeCompare(b.name))
     sacrifices.forEach(el => {
-        listData.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item", "bg-transparent"], `${el.name} ${el.surnames.surnameOne}`));
+        listData.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item", "bg-transparent"], `${el.name} ${el.surnames.surnameOne}`.toUpperCase()));
+    });
+};
+
+const fillListLiving = () => {
+    sacrifices.sort((a, b) => a.name.localeCompare(b.name))
+    sacrifices.forEach(el => {
+        if(!el.killed){
+            listData.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item", "bg-transparent"], `${el.name} ${el.surnames.surnameOne}`.toUpperCase()));
+        }
     });
 };
 
@@ -98,23 +110,28 @@ const handleClick = (element) => {
 
             return () => {          //remove a player at random
                 if (killingInProgress) {
+                    searchEl("#lastKilled").innerHTML = "";
+                    
                     setData.length = 0;
-                owl.trigger('destroy.owl.carousel')
-                searchEl("#owlCarousel").innerHTML = ""
-                searchEl("#owlCarousel").classList.remove("owl-loaded")
-                searchEl("#owlCarousel").classList.remove("owl-drag")
+                
+                    owl.trigger('destroy.owl.carousel')
+                    searchEl("#owlCarousel").innerHTML = ""
+                    searchEl("#owlCarousel").classList.remove("owl-loaded")
+                    searchEl("#owlCarousel").classList.remove("owl-drag")
 
-                owlNames.trigger('destroy.owl.carousel')
-                searchEl("#owlCarouselNames").innerHTML = ""
-                searchEl("#owlCarouselNames").classList.remove("owl-loaded")
-                searchEl("#owlCarouselNames").classList.remove("owl-drag")
-        
-                fillInfoCarousel();
-        
-            drawScreen(setData);
-        
-            setOwlCarousel(); //set carousel info
-            setOwlNames(); //set carousel info
+                    owlNames.trigger('destroy.owl.carousel')
+                    searchEl("#owlCarouselNames").innerHTML = ""
+                    searchEl("#owlCarouselNames").classList.remove("owl-loaded")
+                    searchEl("#owlCarouselNames").classList.remove("owl-drag")
+            
+                    fillInfoCarousel();
+                
+            
+                    drawScreen(setData);
+                    
+                
+                    setOwlCarousel(); //set carousel info
+                    setOwlNames(); //set carousel info
                     searchEl("#duckKiller").classList.remove("wobble-ver-left");
                     element.innerHTML = "kill someone";
                     killingInProgress = false;
@@ -127,6 +144,14 @@ const handleClick = (element) => {
                    
                     crossDead(deadPerson);
                     
+                    searchEl("#listToKill").innerHTML = "";
+                    setData.length = 0;
+                    listData.length = 0;
+
+                    fillListLiving();
+            
+                    drawScreen(listData);
+
                     element.innerHTML = "next kill";
                     killingInProgress = true;
                 }
@@ -151,8 +176,11 @@ const handleClick = (element) => {
             return () => { //play carousel   
                 removeContent(searchEl("#startPoint"))
                 searchEl("#rowKill").remove();
+                searchEl("#titleStillAlive").classList.remove("title-still-alive")
 
                 if(killingInProgress){
+                    searchEl("#lastKilled").innerHTML = "";
+                    
                     searchEl("#formContainer").classList.add("d-none")
                     killingInProgress = false;
                 }
@@ -162,20 +190,9 @@ const handleClick = (element) => {
                 })
 
                 drawScreen(mainTitle)
+                listData.length = 0;
+                fillList();
                 drawScreen(listData)
-            };
-
-        case "btn-showList":
-            return () => { //show list   
-                if (showListClicked) {
-                    element.innerHTML = "sacrifices";
-                    searchEl("#rowKill").classList.add("d-none")
-                    showListClicked = false;
-                } else {
-                    element.innerHTML = "close";
-                    searchEl("#rowKill").classList.remove("d-none")
-                    showListClicked = true;
-                }
             };
 
     }
@@ -307,12 +324,16 @@ const killSomeone = () => {
         setTimeout(() => {
             coderToKill.firstElementChild.firstElementChild.classList.add("d-none")
             coderToKill.firstElementChild.lastElementChild.classList.add("d-none")
+            audioKnife.play();
             searchEl("#splatter").classList.add("scale-up-center")
             searchEl("#splatter").classList.remove("d-none")
             setTimeout(() => {
                 if(killingInProgress){
                     searchEl("#lastKilled").innerHTML = `${killedCoder.name} ${killedCoder.surnames.surnameOne}`
-                searchEl("#formContainer").classList.remove("d-none")
+                    searchEl("#rowKill").classList.remove("rowKillAddPlayers")
+                    searchEl("#titleStillAlive").classList.add("title-still-alive")
+                    searchEl("#rowKill").classList.add("rowKillShowPlayers")
+                    searchEl("#formContainer").classList.remove("d-none")
                 }
                 
             }, 1500);
@@ -333,7 +354,7 @@ const fillInfoCarousel = () => {
             setData.push(new DomElement("imgCarouselL" + el.id, "#owlCarousel .item-carousel:last-of-type", "img", ["img-pumpkin"]));
             setData.push(new DomElement("imgCarouselR" + el.id, "#owlCarousel .item-carousel:last-of-type", "img", ["img-pumpkin"]));
             setData.push(new DomElement("itemCarouselNames" + el.id, "#owlCarouselNames", "div", ["item-carousel"]));
-            setData.push(new DomElement("carouselText" + el.id, "#owlCarouselNames .item-carousel:last-of-type", "div", ["centered"],`${el.name}`));
+            setData.push(new DomElement("carouselText" + el.id, "#owlCarouselNames .item-carousel:last-of-type", "div", ["centered"],`${el.name}`.toUpperCase()));
         }
     });
 }
@@ -374,7 +395,6 @@ const addNodes = (obj) => {
             if (obj.classArray[i] == "img-pumpkin") {
                 eta.lastElementChild.setAttribute("src", "./media/images/index/pumpkin.png");
             }
-
         }
     }
 
@@ -416,7 +436,9 @@ const showForm = () => {
     audioParchmentOpens.play();
     let formElement = searchEl("#formContainer")
     formElement.classList.remove("d-none")
-    formElement = searchEl("#formAddSacrifice")
+    formElement = searchEl(".form-row")
+    formElement.classList.remove("d-none")
+    formElement = searchEl("#btnAddContainer")
     formElement.classList.remove("d-none")
 }
 
@@ -424,6 +446,10 @@ const hideForm = () => {
     let audioParchmentCloses = new Audio('../media/audio/parchmentCloses.mp3');
     audioParchmentCloses.play();
     let formElement = searchEl("#formContainer")
+    formElement.classList.add("d-none")
+    formElement = searchEl(".form-row")
+    formElement.classList.add("d-none")
+    formElement = searchEl("#btnAddContainer")
     formElement.classList.add("d-none")
 }
 
@@ -465,8 +491,8 @@ const cleanVirtualDom = (id) => {
 }
 
 const cleanList = (id) => {
-    for (let j = 0; j < listData.length; j++) {
-        if(`listKillItem${id}` == listData[j].id){
+    for (let i = 0; i < listData.length; i++) {
+        if(`listKillItem${id}` == listData[i].id){
             setData.splice(i, 1);
         }
     }

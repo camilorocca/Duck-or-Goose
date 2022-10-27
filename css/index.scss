@@ -1,4 +1,7 @@
 @import "./variables.scss";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+::-webkit-scrollbar {display: none;}
 
 /********************************
 ***       COMMON STYLES       ***
@@ -17,6 +20,7 @@ section {
     color: $moon-color;
     border-radius: 50px;
     pointer-events: auto;
+    
 }
 
 .btn-purple {
@@ -24,6 +28,10 @@ section {
     color: $moon-color;
     border-radius: 50px;
     pointer-events: auto;
+}
+
+.btn-padding{
+    padding: 2%;
 }
 
 .text-color-moon {
@@ -73,24 +81,6 @@ div {
         }
     }
 }
-.owl-carousel, .owl-item{
-    min-height: 60px!important;
-        @include for-size(phone, up) {
-            min-height: 50px!important
-        }
-        @include for-size(tablet, up) {
-            min-height: 100px!important
-        }
-        @include for-size(tablet-lg, up) {
-            min-height: 150px!important
-        }
-        @include for-size(desktop, up) {
-            min-height: 200px!important
-        }
-        @include for-size(desktop-lg, up) {
-            min-height: 200px!important
-        }
-}
 
 #startPoint {
     .container-md {
@@ -115,27 +105,21 @@ div {
           }
 
         #gridBtn {
-            @include for-size(phone,
-            down) {
+            @include for-size(phone, down) {
                 margin-top: 80%;
             }
-
             @include for-size(tablet, up) {
                 margin-top: 25.5%;
             }
-            @include for-size(tablet-lg,
-            up) {
+            @include for-size(tablet-lg, up) {
                 margin-top: 17.5%;
             }
-            @include for-size(desktop,
-            up) {
+            @include for-size(desktop, up) {
                 margin-top: 20%;
             }
-            @include for-size(desktop-lg,
-            up) {
+            @include for-size(desktop-lg, up) {
                 margin-top: 12.5%;
             }
-            
             @include for-size(desktop-xl, up) {
                 margin-top: 15%;
             }
@@ -145,7 +129,7 @@ div {
 
 .list-group-item{
     border: none!important;
-    color: $primary-color-alt;
+    color: black;
 }
 
 @keyframes pumpkin-go-left {
@@ -184,17 +168,47 @@ div {
 /********************************
 ***      FORM ADDPLAYERS      ***
 ********************************/
+
+
+
 .centered {
     position: absolute;
-    font-size: 0.75rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: $moon-color;
     font-family: $font-main !important;
+    font-size: 0.5rem;
+    @include for-size(tablet, up) {
+        font-size: 0.7rem;
+    }
+    @include for-size(tablet-lg, up) {
+        font-size: 0.9rem;
+    }
+    @include for-size(desktop, up) {
+       
+    }
+    @include for-size(desktop-lg, up) {
+        
+    }
+    @include for-size(desktop-xl, up) {
+       
+    }
+  }
+
+  #btnKillGroup{
+    @include for-size(tablet, up) {
+        margin-top: 2%;
+        width: 40%;
+    }
+    @include for-size(tablet-lg, up) {
+        margin-top: 1%;
+    }
+    
   }
   
 .background-papyrus {
+    font-family: $font-main;
     right: 0;
     background: url("../../../media/images/index/background-papyrus.png");
         background-repeat: no-repeat;
@@ -218,88 +232,44 @@ div {
 
     #formAddSacrifice{
         
-        padding-left: 20%;
+        
         position: fixed;
         margin-left: auto;
         margin-right: auto;
-        top: 15%;
+        top: 12.5%;
         pointer-events: auto;
-        
-    #btn-closeAddPlayers{
-        margin-top: 45%;
-        @include for-size(desktop-lg,up) {
-            margin-top: 40%
+        font-size: 0.75rem;
+
+        input {
+            font-family: $font-text;
         }
     }
-
-    #rowKill{
-        font-family: $font-main !important;
-            position: absolute;
-            
-            padding-left: 15%;
-            margin-top: 35%;
-            overflow: auto;
-            height: 200px;
-            
+    .rowKillAddPlayers{
+            margin-top: 5%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 125px;
+            font-size: 0.6rem;
     }
+
+    .rowKillShowPlayers{
+        margin-top: 5%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 185px;
+        font-size: 0.6rem;
+        
+
 }
 }
 
-#rowDuckKiller {
-    @include for-size(phone,
-    down) {
-        padding-top: 55%;
-    }
-
-    @include for-size(tablet, up) {
-        margin-top: 25.5%;
-    }
-    @include for-size(tablet-lg,
-    up) {
-        margin-top: 17.5%;
-    }
-    @include for-size(desktop,
-    up) {
-        margin-top: 20%;
-    }
-    @include for-size(desktop-lg,
-    up) {
-        margin-top: 12.5%;
-    }
-    
-    @include for-size(desktop-xl, up) {
-        margin-top: 15%;
-    }
+.title-still-alive{
+    margin-top: 10%;
 }
 
-
-#carouselControls {
-    @include for-size(phone,
-    down) {
-        margin-top: 10%;
-    }
-
-    @include for-size(tablet, up) {
-        margin-top: 25.5%;
-    }
-    @include for-size(tablet-lg,
-    up) {
-        margin-top: 17.5%;
-    }
-    @include for-size(desktop,
-    up) {
-        margin-top: 20%;
-    }
-    @include for-size(desktop-lg,
-    up) {
-        margin-top: 12.5%;
-    }
-    
-    @include for-size(desktop-xl, up) {
-        margin-top: 15%;
-    }
+#lastKilled{
+    font-size: 1.5rem;
 }
-
 
 
 /********************************
@@ -313,7 +283,7 @@ div {
     background: #fff;
     .background-img-container {
         background: url("../media/images/index/background-start.png");
-        background-position: 50%;
+        background-position: center;
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         background-size: cover;
@@ -349,7 +319,7 @@ div {
             }
 
             .fog {
-                background: url("../media/images/index/fog-1.png");
+                background: url("../media/images/index/extra-fog-1.png");
                 background-repeat: repeat-x;
                 -webkit-background-size: contain;
                 background-size: contain;
@@ -357,7 +327,7 @@ div {
                 animation: animate 65s linear infinite;
             }
             .fog {
-                background: url("../media/images/index/fog-2.png");
+                background: url("../media/images/index/extra-fog-2.png");
                 background-repeat: repeat-x;
                 -webkit-background-size: contain;
                 background-size: contain;
@@ -556,4 +526,69 @@ div {
    -webkit-transform: scale(1);
            transform: scale(1);
  }
+}
+
+/**************************************
+***     RESPONSIVE MEDIAQUERIES     ***
+**************************************/
+
+#rowDuckKiller {
+    @include for-size(phone,down) {
+        padding-top: 55%;
+    }
+    @include for-size(tablet, up) {
+        margin-top: 20%;
+    }
+    @include for-size(tablet-lg, up) {
+        margin-top: 15%;
+    }
+    @include for-size(desktop, up) {
+        margin-top: 20%;
+    }
+    @include for-size(desktop-lg, up) {
+        margin-top: 12.5%;
+    }
+    @include for-size(desktop-xl, up) {
+        margin-top: 15%;
+    }
+}
+
+#carouselControls {
+    @include for-size(phone, down) {
+        margin-top: 7%;
+    }
+    @include for-size(tablet, up) {
+       margin-top: -2%;
+    }
+    @include for-size(desktop, up) {
+        margin-top: -7%;
+     }
+}
+
+
+#owlCarousel .owl-item{
+    min-height: 60px!important;
+        @include for-size(phone, up) {
+            min-height: 50px!important
+        }
+        @include for-size(tablet, up) {
+            min-height: 120px!important
+        }
+        @include for-size(tablet-lg, up) {
+            min-height: 150px!important
+        }
+        @include for-size(desktop, up) {
+            min-height: 200px!important
+        }
+        @include for-size(desktop-lg, up) {
+            min-height: 220px!important
+        }
+}
+
+#owlCarouselNames .owl-item{
+    min-height: 20px!important;
+    @include for-size(tablet-lg, up) {
+        min-height: 25px!important
+    }
+       
 }

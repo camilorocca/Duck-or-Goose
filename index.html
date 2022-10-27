@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="./lib/owlcarousel/owl.carousel.min.css">
         <link rel="stylesheet" href="./lib/owlcarousel/owl.theme.default.min.css">
         <!-- Custom styles -->
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
+
         <link rel="stylesheet" type="text/css" href="./css/index.css">
     </head>
 
@@ -38,32 +40,36 @@
         </main>
 
         <section id="formContainer" class="d-none">
-            <div class="container-md center-div">
+            <div class="container-md center-div" >
                 <div class="form-group background-papyrus">
-                    <form id="formAddSacrifice" class="d-grid mx-auto d-none">
-                        <div class="form-row mb-1">
-                            <div class="col-md-12 w-75">
-                                <div class="input-group mb-1">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text creepy-font">name</label>
-                                    </div>
-                                    <input class="form-control input-data" type="text" placeholder="name">
+                    <form id="formAddSacrifice" class="d-grid mx-auto">
+                        <div class="form-row d-none">
+                            <div class="col-md-12">
+                                <div class="mt-2">
+                                
+                                    <label for="inputName" class="form-label">name</label>
+                                    <input type="text" maxlength="10" class="form-control" id="inputName">
+                                  
                                 </div>
-                                <div class="input-group mb-1">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text creepy-font" for="inputGroupSelectMarca">surname</label>
-                                    </div>
-                                    <input class="form-control input-data" type="text" placeholder="surname">
-                                </div>
+                                
+                                    <div class="mt-2">
+                                        <label for="inputName" class="form-label">surnaname</label>
+                                        <input type="text" maxlength="10" class="form-control" id="inputName">
+                                      </div>
+                                    
                             </div>
                         </div>
-                        <div class="d-grid gap-2">
-                            <button type ="submit" class="btn btn-orange w-75 creepy-font">add sacrifice</button>
+                        <div class="d-grid gap-2 mt-2 d-none" id="btnAddContainer">
+                            <button type ="submit" class="btn btn-orange creepy-font">add sacrifice</button>
                         </div>
-                    </form>
-                    <div id="lastKilled"class="creepy-font">
+                        <div id="showLivingCoders" class="d-grid gap-2 mt-2 mb-2 col-6 mx-auto">
 
-                    </div>
+                            <div id="lastKilled"class="creepy-font mt-3 text-center"></div>
+                        </div>
+                        <div id="titleStillAlive" class="text-center">Coders still alive</div>
+                    </form>
+                    
+                    
                     
                 </div>
             </div>
