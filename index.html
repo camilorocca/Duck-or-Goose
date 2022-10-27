@@ -40,26 +40,30 @@
         <section id="formContainer" class="d-none">
             <div class="container-md center-div">
                 <div class="form-group background-papyrus">
-                    <form id="formAddSacrifice" class="d-grid mx-auto">
+                    <form id="formAddSacrifice" class="d-grid mx-auto d-none">
                         <div class="form-row mb-1">
                             <div class="col-md-12 w-75">
                                 <div class="input-group mb-1">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text creepy-font">Name</label>
+                                        <label class="input-group-text creepy-font">name</label>
                                     </div>
                                     <input class="form-control input-data" type="text" placeholder="name">
                                 </div>
                                 <div class="input-group mb-1">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text creepy-font" for="inputGroupSelectMarca">Surname</label>
+                                        <label class="input-group-text creepy-font" for="inputGroupSelectMarca">surname</label>
                                     </div>
                                     <input class="form-control input-data" type="text" placeholder="surname">
                                 </div>
                             </div>
                         </div>
-                        <button type ="submit" class="btn btn-orange w-75 creepy-font">Add Sacrifice</button>
-                        <button type ="button" id="btn-remove" class="btn btn-purple w-75 creepy-font">Kill Adrian</button>
+                        <div class="d-grid gap-2">
+                            <button type ="submit" class="btn btn-orange w-75 creepy-font">add sacrifice</button>
+                        </div>
                     </form>
+                    <div id="lastKilled"class="creepy-font">
+
+                    </div>
                     
                 </div>
             </div>
