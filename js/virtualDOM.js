@@ -130,7 +130,19 @@ export let playView = [{
         classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
         text: "flee",
         type: "button"
-    }
+    },
+    {
+        id: "splatter",
+        elementToAppend: ".background-img-container",
+        elementToCreate: "div",
+        classArray: ["d-none"]
+    },
+    {
+        id: "rowTombs",
+        elementToAppend: ".background-img-container",
+        elementToCreate: "div",
+        classArray: ["d-none"]
+   }
 ]
 
 

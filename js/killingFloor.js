@@ -319,8 +319,8 @@ const killSomeone = () => {
         }, 1500);
     }, 250 * movements);
 
-    console.log(killedCoder)
-    console.log(sacrifices)
+    searchEl("#rowTombs").classList.remove("d-none");
+
     return killedCoder;
 }
 
