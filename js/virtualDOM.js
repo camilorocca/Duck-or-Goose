@@ -42,7 +42,7 @@ export let mainTitle = [{
         elementToAppend: "#gridBtn",
         elementToCreate: "button",
         classArray: ["btn", "btn-orange", "btn-lg", "creepy-font"],
-        text: "Start Killing",
+        text: "start Killing",
         type: "button"
     },
     {
@@ -50,35 +50,28 @@ export let mainTitle = [{
         elementToAppend: "#gridBtn",
         elementToCreate: "button",
         classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
-        text: "Add Sacrifices",
+        text: "add Sacrifices",
         type: "button"
     },
     {
         id: "rowKill",
         elementToAppend: "#formAddSacrifice",
         elementToCreate: "div",
-        classArray: ["row"]
-    },
-    {
-        id: "listKillCol",
-        elementToAppend: "#rowKill",
-        elementToCreate: "div",
-        classArray: ["col-md-12"]
+        classArray: []
     },
     {
         id: "listToKill",
-        elementToAppend: "#listKillCol",
+        elementToAppend: "#rowKill",
         elementToCreate: "ul",
-        classArray: ["list-group", "list-group-flush"]
+        classArray: ["list-group", "bg-transparent"]
     }
 ]
 
-export let playView = [
-    {
+export let playView = [{
         id: "container",
         elementToAppend: "#startPoint",
         elementToCreate: "div",
-        classArray: ["container-md", "fixed-bottom", "mb-5"]
+        classArray: ["container-md"]
     },
     {
         id: "rowDuckKiller",
@@ -99,15 +92,26 @@ export let playView = [
         classArray: ["d-none"]
     },
     {
-        id: "owlCarousel",
+        id: "carouselControls",
         elementToAppend: "#container",
         elementToCreate: "div",
-        classArray: ["owl-carousel"]
+        classArray: []
     },
-
+    {
+        id: "owlCarousel",
+        elementToAppend: "#carouselControls",
+        elementToCreate: "div",
+        classArray: ["owl-carousel", "pb-2"]
+    },
+    {
+        id: "owlCarouselNames",
+        elementToAppend: "#carouselControls",
+        elementToCreate: "div",
+        classArray: ["owl-carousel", "pb-5"]
+    },
     {
         id: "btnKillGroup",
-        elementToAppend: "#container",
+        elementToAppend: "#carouselControls",
         elementToCreate: "div",
         classArray: ["d-grid", "gap-2", "col-md-8", "mx-auto"]
     },
@@ -116,23 +120,15 @@ export let playView = [
         elementToAppend: "#btnKillGroup",
         elementToCreate: "button",
         classArray: ["btn", "btn-orange", "btn-lg", "creepy-font"],
-        text: "KillSomeone",
+        text: "killSomeone",
         type: "button"
     },
     {
-        id: "btn-play",
+        id: "btn-flee",
         elementToAppend: "#btnKillGroup",
         elementToCreate: "button",
         classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
-        text: "Play",
-        type: "button"
-    },
-    {
-        id: "btn-pause",
-        elementToAppend: "#btnKillGroup",
-        elementToCreate: "button",
-        classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
-        text: "Pause",
+        text: "flee",
         type: "button"
     },
     {
@@ -140,10 +136,16 @@ export let playView = [
         elementToAppend: ".background-img-container",
         elementToCreate: "div",
         classArray: ["d-none"]
-    }
+    },
+    {
+        id: "rowTombs",
+        elementToAppend: ".background-img-container",
+        elementToCreate: "div",
+        classArray: ["d-none"]
+   }
 ]
 
 
-export let setData = []
+export let setData = [];
 
-export let setList = []
+export let listData = []

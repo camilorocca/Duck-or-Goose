@@ -23,6 +23,7 @@ section {
     background-color: $primary-color;
     color: $moon-color;
     border-radius: 50px;
+    pointer-events: auto;
 }
 
 .text-color-moon {
@@ -41,6 +42,30 @@ section {
 #splatter {
     right: 0;
     background: url("../media/images/index/blood-orange 1.png");
+    background-repeat: no-repeat;
+    background-position: 50% 10%;
+    width:100%;
+    z-index:100!important;
+    top:0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    top: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+#rowTombs {
+    right: 0;
+    background: url("../media/images/graveStone.png");
     position:absolute;
     background-repeat: no-repeat;
     overflow-x: hidden;
@@ -55,7 +80,6 @@ section {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    left: 50%;
 }
 
 div {
@@ -68,9 +92,47 @@ div {
         }
     }
 }
+.owl-carousel, .owl-item{
+    min-height: 60px!important;
+        @include for-size(phone, up) {
+            min-height: 50px!important
+        }
+        @include for-size(tablet, up) {
+            min-height: 100px!important
+        }
+        @include for-size(tablet-lg, up) {
+            min-height: 150px!important
+        }
+        @include for-size(desktop, up) {
+            min-height: 200px!important
+        }
+        @include for-size(desktop-lg, up) {
+            min-height: 200px!important
+        }
+}
 
 #startPoint {
     .container-md {
+
+        .img-pumpkin {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+          }
+          
+          
+          .pumpkin-left {
+            clip-path: polygon(0 0, 100% 0%, 0% 100%);
+            animation: pumpkin-go-left 1s 1s;
+          }
+          
+          .pumpkin-right {
+            clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+            animation: pumpkin-go-right 1s 1s;
+          }
+
         #gridBtn {
             @include for-size(phone,
             down) {
@@ -92,35 +154,77 @@ div {
             up) {
                 margin-top: 12.5%;
             }
-
             
             @include for-size(desktop-xl, up) {
-
                 margin-top: 15%;
             }
         }
     }
 }
 
+.list-group-item{
+    border: none!important;
+    color: $primary-color-alt;
+}
+
+@keyframes pumpkin-go-left {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-100px) translateY(-30px);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pumpkin-go-right {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100px) translateY(30px);
+      opacity: 0;
+    }
+  }
+
+
+  
 
 /********************************
 ***      FORM ADDPLAYERS      ***
 ********************************/
-input{
-    cursor: pointer;
-}
-
+.centered {
+    position: absolute;
+    font-size: 0.75rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $moon-color;
+    font-family: $font-main !important;
+  }
+  
 .background-papyrus {
     right: 0;
     background: url("../../../media/images/index/background-papyrus.png");
         background-repeat: no-repeat;
         overflow-x:auto; 
-        overflow-y:scroll;
+        overflow-y:visible;
         position: absolute;
         background-position: 50% 10%;
         width:100%;
         z-index:0;
-        top:0;        
+        top:0;
+        pointer-events: none;
         width: 100%;
         height: 100vh;
         display: flex;
@@ -129,15 +233,16 @@ input{
         flex-direction: column;
         left:50%;
         transform: translateX(-50%);
-        padding-left: 9%;
-        padding-right: 2%;
+        
 
     #formAddSacrifice{
         
+        padding-left: 20%;
         position: fixed;
         margin-left: auto;
         margin-right: auto;
         top: 15%;
+        pointer-events: auto;
         
     #btn-closeAddPlayers{
         margin-top: 45%;
@@ -145,7 +250,73 @@ input{
             margin-top: 40%
         }
     }
+
+    #rowKill{
+        font-family: $font-main !important;
+            position: absolute;
+            
+            padding-left: 15%;
+            margin-top: 35%;
+            overflow: auto;
+            height: 200px;
+            
+    }
 }
+}
+
+#rowDuckKiller {
+    @include for-size(phone,
+    down) {
+        padding-top: 55%;
+    }
+
+    @include for-size(tablet, up) {
+        margin-top: 25.5%;
+    }
+    @include for-size(tablet-lg,
+    up) {
+        margin-top: 17.5%;
+    }
+    @include for-size(desktop,
+    up) {
+        margin-top: 20%;
+    }
+    @include for-size(desktop-lg,
+    up) {
+        margin-top: 12.5%;
+    }
+    
+    @include for-size(desktop-xl, up) {
+        margin-top: 15%;
+    }
+}
+
+
+#carouselControls {
+    @include for-size(phone,
+    down) {
+        margin-top: 10%;
+    }
+
+    @include for-size(tablet, up) {
+        margin-top: 25.5%;
+    }
+    @include for-size(tablet-lg,
+    up) {
+        margin-top: 17.5%;
+    }
+    @include for-size(desktop,
+    up) {
+        margin-top: 20%;
+    }
+    @include for-size(desktop-lg,
+    up) {
+        margin-top: 12.5%;
+    }
+    
+    @include for-size(desktop-xl, up) {
+        margin-top: 15%;
+    }
 }
 
 
@@ -374,45 +545,35 @@ input{
     }
 }
 
-
-
-.img1 {
-  clip-path: polygon(0 0, 100% 0%, 0% 100%);
-  animation: image1Anim 2s 1s;
-}
-
-.img2 {
-  clip-path: polygon(100% 0, 100% 100%, 0% 100%);
-  animation: image2Anim 2s 1s;
+.scale-up-center {
+	-webkit-animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.1s both;
+	        animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.1s both;
 }
 
 
-@keyframes image1Anim {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  30% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100px) translateY(-30px);
-    opacity: 0;
-  }
+/**
+* ----------------------------------------
+* animation scale-up-center
+* ----------------------------------------
+*/
+@-webkit-keyframes scale-up-center {
+ 0% {
+   -webkit-transform: scale(0.5);
+           transform: scale(0.5);
+ }
+ 100% {
+   -webkit-transform: scale(1);
+           transform: scale(1);
+ }
 }
+@keyframes scale-up-center {
+ 0% {
+   -webkit-transform: scale(0.5);
+           transform: scale(0.5);
+ }
+ 100% {
+   -webkit-transform: scale(1);
+           transform: scale(1);
+ }
 
-@keyframes image2Anim {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  30% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100px) translateY(30px);
-    opacity: 0;
-  }
 }

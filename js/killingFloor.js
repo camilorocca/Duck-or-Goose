@@ -1,5 +1,5 @@
 import { sacrifices } from "./variables.js";
-import { mainTitle, playView, setData, setList } from "./virtualDOM.js";
+import { mainTitle, playView, setData, listData } from "./virtualDOM.js";
 
 
 //constructor for new DOM element
@@ -15,9 +15,12 @@ function DomElement(id, elementToAppend, elementToCreate, ...rest) {
 let audioFogHorn = new Audio('../media/audio/fogHorn.mp3');
 let fogSetted = true;
 let addPlayersClicked = false;
+let killingInProgress = false;
+let showListClicked = false;
 
 //owl carousel initial variables
 let owl;
+let owlNames;
 let btnTimeID;
 
 let position;
@@ -33,14 +36,14 @@ window.onload = (event) => {
     setFormEventListener(); //set submit for form
 
     searchEl('#mainContainer').addEventListener("click", handleClick(searchEl("#mainContainer"))); //set click for unset fog
-    searchEl('#btn-remove').addEventListener("click", handleClick( searchEl('#btn-remove')));
 
     drawScreen(mainTitle);
 
-    sacrifices.forEach(el => {        
-        setList.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item"], `${el.name} ${el.surnames.surnameOne}`));
-        });
-        drawScreen(setList);
+    fillList();
+
+    
+
+    drawScreen(listData);
 };
 
 //draws the elements received from virtualDomJs
@@ -50,16 +53,23 @@ const drawScreen = (virtualDom) => {
     });
 };
 
+const fillList = () => {
+    sacrifices.forEach(el => {
+        listData.push(new DomElement("listKillItem" + el.id, "#listToKill", "li", ["list-group-item", "bg-transparent"], `${el.name} ${el.surnames.surnameOne}`));
+    });
+};
+
+
+const handleRemove = (element) => {
+    return() => {
+        element.remove()
+        let indexToKill = element.id.replace(/\D/g, "");
+        deleteSacrifice(indexToKill);
+    }
+}
 /* Handle clicks and called functions
 ========================================================= */
 const handleClick = (element) => {
-    if(element.nodeName == "LI"){
-        return() => {
-            element.remove()
-            let indexToKill = element.id.replace(/\D/g, "");
-            deleteSacrifice(indexToKill);
-        }
-    }
     switch (element.id) { //switch depending on button id
         case "mainContainer":
             return () => { //unset fog
@@ -87,13 +97,40 @@ const handleClick = (element) => {
         case "btn-killSomeone":
 
             return () => {          //remove a player at random
-                searchEl("#duckKiller").classList.add("wobble-ver-left");
-                let deadPerson = killSomeone();
-                crossDead(deadPerson);
-                searchEl("#splatter").classList.remove("d-none");
-                setTimeout(() => {
+                if (killingInProgress) {
+                    setData.length = 0;
+                owl.trigger('destroy.owl.carousel')
+                searchEl("#owlCarousel").innerHTML = ""
+                searchEl("#owlCarousel").classList.remove("owl-loaded")
+                searchEl("#owlCarousel").classList.remove("owl-drag")
+
+                owlNames.trigger('destroy.owl.carousel')
+                searchEl("#owlCarouselNames").innerHTML = ""
+                searchEl("#owlCarouselNames").classList.remove("owl-loaded")
+                searchEl("#owlCarouselNames").classList.remove("owl-drag")
+        
+                fillInfoCarousel();
+        
+            drawScreen(setData);
+        
+            setOwlCarousel(); //set carousel info
+            setOwlNames(); //set carousel info
                     searchEl("#duckKiller").classList.remove("wobble-ver-left");
-                }, 5000);
+                    element.innerHTML = "kill someone";
+                    killingInProgress = false;
+                    searchEl("#splatter").classList.add("d-none")
+                    searchEl("#splatter").classList.remove("scale-up-center")
+                    searchEl("#formContainer").classList.add("d-none")
+                } else {
+                    searchEl("#duckKiller").classList.add("wobble-ver-left");
+                    let deadPerson = killSomeone();
+                   
+                    crossDead(deadPerson);
+                    
+                    element.innerHTML = "next kill";
+                    killingInProgress = true;
+                }
+
             };
 
         case "btn-addSacrifices":
@@ -110,21 +147,37 @@ const handleClick = (element) => {
 
             };
 
-        case "btn-play":
+        case "btn-flee":
             return () => { //play carousel   
                 removeContent(searchEl("#startPoint"))
+                searchEl("#rowKill").remove();
+
+                if(killingInProgress){
+                    searchEl("#formContainer").classList.add("d-none")
+                    killingInProgress = false;
+                }
+
+                sacrifices.forEach(el => {
+                    el.killed = false;
+                })
+
                 drawScreen(mainTitle)
+                drawScreen(listData)
             };
 
-        case "btn-pause":
-            return () => { // pause carousel       
-                owl.trigger('prev.owl.carousel')
+        case "btn-showList":
+            return () => { //show list   
+                if (showListClicked) {
+                    element.innerHTML = "sacrifices";
+                    searchEl("#rowKill").classList.add("d-none")
+                    showListClicked = false;
+                } else {
+                    element.innerHTML = "close";
+                    searchEl("#rowKill").classList.remove("d-none")
+                    showListClicked = true;
+                }
             };
-        
-        case "btn-remove":
-            return () => {        
-                deleteSacrifice(1666682362204)
-            };
+
     }
 };
 
@@ -163,6 +216,15 @@ const setFormEventListener = () => {
                 };
                 sacrifices.push(obj);
 
+                listData.length = 0;
+
+                sacrifices.sort((a, b) => a.name.localeCompare(b.name))
+
+                searchEl("#listToKill").innerHTML = "";
+                fillList();
+
+                drawScreen(listData);
+
                 break;
         };
     });
@@ -175,12 +237,8 @@ const startKilling = () => {
     }
     //create dom elements with the data from sacrifices
 
+    fillInfoCarousel()
 
-    sacrifices.forEach(el => {
-        setData.push(new DomElement("itemCarousel" + el.id, "#owlCarousel", "div"));
-        setData.push(new DomElement("imgCarousel" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid", "img-pumpking"], `${el.name}`));
-        setData.push(new DomElement("imgCarouselSection" + el.id, "#owlCarousel div:last-of-type", "img", ["img-fluid", "img-pumpking"], `${el.name}`));
-    });
 
 
     drawScreen(playView);
@@ -189,12 +247,25 @@ const startKilling = () => {
     searchEl("#duckKiller").setAttribute("src", "./media/icons/killingFloor/DuckTheKiller-Orange.svg")
 
     setOwlCarousel(); //set carousel info
+    setOwlNames(); //set carousel info
 }
 
 const setOwlCarousel = () => {
-    owl = $('#owlCarousel');
+    owl = $("#owlCarousel");
 
     owl.owlCarousel({
+        items: 5,
+        loop: true,
+        margin: 10,
+        autoplay: false,
+        onTranslated: callback
+    });
+}
+
+const setOwlNames = () => {
+    owlNames = $("#owlCarouselNames");
+
+    owlNames.owlCarousel({
         items: 5,
         loop: true,
         margin: 10,
@@ -210,26 +281,19 @@ function callback(event){
 
 //function to kill a coder at random
 const killSomeone = () => {
-    let movements = Math.floor(Math.random() * (7 - 2) + 2);
-    let positionSound 
-    for (let i = 0; i < movements; i++) {
-        owl.trigger('next.owl.carousel');
-        positionSound = Math.floor(Math.random() * (24 - 2) + 2);
-        let duckSound = []
-        for (let j = 0; j < positionSound; j++) {
-            duckSound[j]  = new Audio(`../media/audio/pato${positionSound}.mp3`);
-            console.log (duckSound[j]);
-            setTimeout (() => {
-                duckSound[j].play()
-            }, 5000);
-        };
-        }
-
-    let coderToKill = searchEl("#owlCarousel .active div");
-
-    let indexToKill = coderToKill.id.replace(/\D/g, "");
     
-    console.log(indexToKill)
+    let movements = Math.floor(Math.random() * (7 - 2) + 2);
+
+    for (let i = 0; i < movements; i++) {
+        owl.trigger('next.owl.carousel', [300])
+        owlNames.trigger('next.owl.carousel', [300])
+    }
+
+   
+    let coderToKill = document.getElementsByClassName("active")[2];
+
+    let indexToKill = coderToKill.firstElementChild.id.replace(/\D/g, "");
+    
     let killedCoder;
     sacrifices.forEach(el => {
         if (el.id == indexToKill) {
@@ -237,16 +301,56 @@ const killSomeone = () => {
             el.killed = true;
         }        
     });
-
+    
     setTimeout(() => {
-        coderToKill.firstElementChild.classList.add("img1");
-        coderToKill.lastElementChild.classList.add("img2");
-    }, 1000*movements);
+        coderToKill.firstElementChild.firstElementChild.classList.add("pumpkin-left")
+        coderToKill.firstElementChild.lastElementChild.classList.add("pumpkin-right")
+        setTimeout(() => {
+            coderToKill.firstElementChild.firstElementChild.classList.add("d-none")
+            coderToKill.firstElementChild.lastElementChild.classList.add("d-none")
+            searchEl("#splatter").classList.add("scale-up-center")
+            searchEl("#splatter").classList.remove("d-none")
+            setTimeout(() => {
+                if(killingInProgress){
+                    searchEl("#lastKilled").innerHTML = `${killedCoder.name} ${killedCoder.surnames.surnameOne}`
+                searchEl("#formContainer").classList.remove("d-none")
+                }
+                
+            }, 1500);
+        }, 1500);
+    }, 250 * movements);
+
    
     owl.trigger('remove.owl.carousel', [position]).trigger('refresh.owl.carousel');
  
+
+    searchEl("#rowTombs").classList.remove("d-none");
+
+
     return killedCoder;
 }
+
+const fillInfoCarousel = () => {
+
+    shuffleArray(sacrifices)
+    sacrifices.forEach(el => {
+        if (el.killed != true){
+            setData.push(new DomElement("itemCarousel" + el.id, "#owlCarousel", "div", ["item-carousel"]));
+            setData.push(new DomElement("imgCarouselL" + el.id, "#owlCarousel .item-carousel:last-of-type", "img", ["img-pumpkin"]));
+            setData.push(new DomElement("imgCarouselR" + el.id, "#owlCarousel .item-carousel:last-of-type", "img", ["img-pumpkin"]));
+            setData.push(new DomElement("itemCarouselNames" + el.id, "#owlCarouselNames", "div", ["item-carousel"]));
+            setData.push(new DomElement("carouselText" + el.id, "#owlCarouselNames .item-carousel:last-of-type", "div", ["centered"],`${el.name}`));
+        }
+    });
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 
 /* Functions to alter DOM
 ========================================================= */
@@ -273,14 +377,15 @@ const addNodes = (obj) => {
     if (obj.classArray) {
         for (let i = 0; i < obj.classArray.length; i++) {
             eta.lastElementChild.classList.add(obj.classArray[i]);
-            if (obj.classArray[i] == "img-pumpking") {
+            if (obj.classArray[i] == "img-pumpkin") {
                 eta.lastElementChild.setAttribute("src", "./media/images/index/pumpkin.png");
             }
 
         }
     }
+
     if(obj.elementToCreate == "li"){
-        eta.lastElementChild.addEventListener("click", handleClick(eta.lastElementChild));
+        eta.lastElementChild.addEventListener("click", handleRemove(eta.lastElementChild));
     }
 
     if (obj.elementToCreate == "button") {
@@ -303,7 +408,7 @@ const removeContent = (el) => {
 
 //function to cross names in list
 const crossDead = (obj) => {
-    let liElements = document.querySelectorAll("#startPoint li");
+    let liElements = document.querySelectorAll("#rowKill li");
     liElements.forEach(el => {
         if (el.innerHTML == `${obj.name} ${obj.surnames.surnameOne}`) {
             el.setAttribute('style', 'text-decoration: line-through');
@@ -316,6 +421,8 @@ const showForm = () => {
     let audioParchmentOpens = new Audio('../media/audio/parchmentOpens.mp3');
     audioParchmentOpens.play();
     let formElement = searchEl("#formContainer")
+    formElement.classList.remove("d-none")
+    formElement = searchEl("#formAddSacrifice")
     formElement.classList.remove("d-none")
 }
 
@@ -334,25 +441,39 @@ const deleteSacrifice = (idToRemove) => {
         }
     }
 
-    console.log(setData)
-
-    for (let i = 0; i < setData.length; i++) {
-        if (`itemCarousel${idToRemove}` == setData[i].id) {
-            setData.splice(i, 1);
-        }
-       
-        if(`imgCarousel${idToRemove}` == setData[i].id){
-            setData.splice(i, 1);
-        }
-    };
-    for (let i = 0; i < setList.length; i++) {
-        if (`listKillItem${idToRemove}` == setList[i].id) {
-            setList.splice(i, 1);
-        }
-       
- 
-    };
-
-    console.log(setData)
     
+
+    cleanVirtualDom(idToRemove)
+
+    cleanList(idToRemove);
+    
+
+}
+
+const cleanVirtualDom = (id) => {
+    for (let i = 0; i < setData.length; i++) {
+        if (`itemCarousel${id}` == setData[i].id) {
+            setData.splice(i, 1);
+        }
+        if(`imgCarouselL${id}` == setData[i].id){
+            setData.splice(i, 1);
+        }
+        if(`imgCarouselR${id}` == setData[i].id){
+            setData.splice(i, 1);
+        }
+        if(`carouselText${id}` == setData[i].id){
+            setData.splice(i, 1);
+        }
+        if(`itemCarouselNames${id}` == setData[i].id){
+            setData.splice(i, 1);
+        }
+    };
+}
+
+const cleanList = (id) => {
+    for (let j = 0; j < listData.length; j++) {
+        if(`listKillItem${id}` == listData[j].id){
+            setData.splice(i, 1);
+        }
+    }
 }

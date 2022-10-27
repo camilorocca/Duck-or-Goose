@@ -1,10 +1,10 @@
 export let sacrifices = [
     {
         id: 1666682362204,
-        name: "Adrián",
+        name: "adrian",
         surnames: {
-            surnameOne: "Suñé",
-            surnameTwo: "Mancheño"
+            surnameOne: "sunye",
+            surnameTwo: "manchenyo"
         },
         age: 28,
         born: "1994 - ?",
@@ -13,9 +13,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362205,
-        name: "Albert",
+        name: "albert",
         surnames: {
-            surnameOne: "Arqués",
+            surnameOne: "arques",
             surnameTwo: ""
         },
         age: 28,
@@ -24,10 +24,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362206,
-        name: "Alejandra",
+        name: "alejandra",
         surnames: {
-            surnameOne: "Morales",
-            surnameTwo: "Cutiño"
+            surnameOne: "morales",
+            surnameTwo: "cutino"
         },
         age: 28,
         born: "1994 - ?",
@@ -35,10 +35,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362207,
-        name: "Alejandro",
+        name: "alejandro",
         surnames: {
-            surnameOne: "Buriticá",
-            surnameTwo: "Rodríguez"
+            surnameOne: "buritica",
+            surnameTwo: "rodriguez"
         },
         age: 28,
         born: "1994 - ?",
@@ -46,10 +46,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362208,
-        name: "Alessandro",
+        name: "alessandro",
         surnames: {
-            surnameOne: "Arroyo",
-            surnameTwo: "Lebron"
+            surnameOne: "arroyo",
+            surnameTwo: "lebron"
         },
         age: 28,
         born: "1994 - ?",
@@ -57,10 +57,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362209,
-        name: "Andrés Esteban",
+        name: "andres esteban",
         surnames: {
-            surnameOne: "Patiño",
-            surnameTwo: "Gómez"
+            surnameOne: "patino",
+            surnameTwo: "gomez"
         },
         age: 28,
         born: "1994 - ?",
@@ -68,9 +68,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362210,
-        name: "Camilo",
+        name: "camilo",
         surnames: {
-            surnameOne: "Rocca",
+            surnameOne: "rocca",
             surnameTwo: ""
         },
         age: 28,
@@ -79,9 +79,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362211,
-        name: "Carla",
+        name: "carla",
         surnames: {
-            surnameOne: "Luppi",
+            surnameOne: "luppi",
             surnameTwo: ""
         },
         age: 28,
@@ -90,10 +90,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362212,
-        name: "Cristian Damaso",
+        name: "cristian damaso",
         surnames: {
-            surnameOne: "Calderon",
-            surnameTwo: "Rojas"
+            surnameOne: "calderon",
+            surnameTwo: "rojas"
         },
         age: 28,
         born: "1994 - ?",
@@ -101,10 +101,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362213,
-        name: "Eberth Isaac",
+        name: "eberth isaac",
         surnames: {
-            surnameOne: "Castro",
-            surnameTwo: "Campos"
+            surnameOne: "castro",
+            surnameTwo: "campos"
         },
         age: 28,
         born: "1994 - ?",
@@ -112,7 +112,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362214,
-        name: "Eduard",
+        name: "eduard",
         surnames: {
             surnameOne: "",
             surnameTwo: ""
@@ -123,10 +123,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362215,
-        name: "Erick Andres",
+        name: "erick andres",
         surnames: {
-            surnameOne: "Crespin",
-            surnameTwo: "Ponce"
+            surnameOne: "crespin",
+            surnameTwo: "ponce"
         },
         age: 28,
         born: "1994 - ?",
@@ -134,10 +134,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362216,
-        name: "Federico Carlos",
+        name: "federico carlos",
         surnames: {
-            surnameOne: "Gatti",
-            surnameTwo: "Teijeiro"
+            surnameOne: "gatti",
+            surnameTwo: "teijeiro"
         },
         age: 28,
         born: "1994 - ?",
@@ -145,9 +145,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362217,
-        name: "Francisco",
+        name: "francisco",
         surnames: {
-            surnameOne: "Aguirre",
+            surnameOne: "aguirre",
             surnameTwo: ""
         },
         age: 28,
@@ -156,10 +156,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362218,
-        name: "Gary",
+        name: "gary",
         surnames: {
-            surnameOne: "Huayhuasi",
-            surnameTwo: "Lima"
+            surnameOne: "huayhuasi",
+            surnameTwo: "lima"
         },
         age: 28,
         born: "1994 - ?",
@@ -167,9 +167,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362219,
-        name: "Guillem",
+        name: "guillem",
         surnames: {
-            surnameOne: "Martínez",
+            surnameOne: "martinez",
             surnameTwo: ""
         },
         age: 28,
@@ -178,9 +178,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362220,
-        name: "Ingrid",
+        name: "ingrid",
         surnames: {
-            surnameOne: "Barrachina",
+            surnameOne: "barrachina",
             surnameTwo: ""
         },
         age: 28,
@@ -189,10 +189,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362221,
-        name: "Isabel",
+        name: "isabel",
         surnames: {
-            surnameOne: "Santos",
-            surnameTwo: "Castro"
+            surnameOne: "santos",
+            surnameTwo: "castro"
         },
         age: 28,
         born: "1994 - ?",
@@ -200,9 +200,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362222,
-        name: "Jerry",
+        name: "jerry",
         surnames: {
-            surnameOne: "Aiyaniyo",
+            surnameOne: "aiyaniyo",
             surnameTwo: ""
         },
         age: 28,
@@ -211,10 +211,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362223,
-        name: "Jessica Alexandra",
+        name: "jessica alexandra",
         surnames: {
-            surnameOne: "Jaramillo",
-            surnameTwo: "Moncada"
+            surnameOne: "jaramillo",
+            surnameTwo: "moncada"
         },
         age: 28,
         born: "1994 - ?",
@@ -222,9 +222,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362224,
-        name: "Judit",
+        name: "judit",
         surnames: {
-            surnameOne: "Calvet",
+            surnameOne: "calvet",
             surnameTwo: ""
         },
         age: 28,
@@ -233,9 +233,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362225,
-        name: "Lidia",
+        name: "lidia",
         surnames: {
-            surnameOne: "Luque",
+            surnameOne: "luque",
             surnameTwo: ""
         },
         age: 28,
@@ -244,7 +244,7 @@ export let sacrifices = [
     },
     {
         id: 1666682362226,
-        name: "Mamadou",
+        name: "mamadou",
         surnames: {
             surnameOne: "",
             surnameTwo: ""
@@ -255,10 +255,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362227,
-        name: "Mario Alberto",
+        name: "mario alberto",
         surnames: {
-            surnameOne: "Valdés",
-            surnameTwo: "Centurión"
+            surnameOne: "valdes",
+            surnameTwo: "centurion"
         },
         age: 28,
         born: "1994 - ?",
@@ -266,9 +266,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362228,
-        name: "Mateo",
+        name: "mateo",
         surnames: {
-            surnameOne: "Sandoval",
+            surnameOne: "sandoval",
             surnameTwo: ""
         },
         age: 28,
@@ -277,9 +277,9 @@ export let sacrifices = [
     },
     {
         id: 1666682362229,
-        name: "Oksana",
+        name: "oksana",
         surnames: {
-            surnameOne: "Fedyukova",
+            surnameOne: "fedyukova",
             surnameTwo: ""
         },
         age: 28,
@@ -288,10 +288,10 @@ export let sacrifices = [
     },
     {
         id: 1666682362230,
-        name: "Rocío",
+        name: "rocio",
         surnames: {
-            surnameOne: "Cejudo",
-            surnameTwo: "Soronellas"
+            surnameOne: "cejudo",
+            surnameTwo: "soronellas"
         },
         age: 28,
         born: "1994 - ?",
@@ -299,9 +299,20 @@ export let sacrifices = [
     },
     {
         id: 1666682362231,
-        name: "Rodrigo",
+        name: "rodrigo",
         surnames: {
-            surnameOne: "Fernández",
+            surnameOne: "fernandez",
+            surnameTwo: ""
+        },
+        age: 28,
+        born: "1994 - ?",
+        killed: false
+    },
+    {
+        id: 1666682362232,
+        name: "teix",
+        surnames: {
+            surnameOne: "garcia",
             surnameTwo: ""
         },
         age: 28,
