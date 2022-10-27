@@ -240,6 +240,7 @@ const startKilling = () => {
     fillInfoCarousel()
 
 
+
     drawScreen(playView);
 
     drawScreen(setData);
@@ -298,7 +299,7 @@ const killSomeone = () => {
         if (el.id == indexToKill) {
             killedCoder = el;
             el.killed = true;
-        }
+        }        
     });
     
     setTimeout(() => {
@@ -319,7 +320,12 @@ const killSomeone = () => {
         }, 1500);
     }, 250 * movements);
 
+   
+    owl.trigger('remove.owl.carousel', [position]).trigger('refresh.owl.carousel');
+ 
+
     searchEl("#rowTombs").classList.remove("d-none");
+
 
     return killedCoder;
 }
