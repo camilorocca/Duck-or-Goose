@@ -2,13 +2,29 @@
 ***            FONTS          ***
 ********************************/
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+    font-family: 'Open Sans', serif;
+}
+
+@font-face {
+    font-family: 'theHalloween';
+    src: url("../media/fonts/The_Halloween.ttf");
+}
+
+$font-main: 'theHalloween';
+$font-inputs: 'Open Sans';
 
 /********************************
 ***       COLOR PALETTE       ***
 ********************************/
 
-$primary-color: #fff;
-$secondary-color: #000;
+$primary-color: #4A347D;
+$primary-color-alt: #9071B5;
+$secondary-color: #F66C13;
+$secondary-color-alt: #FCAF46;
+$moon-color: #FDF0BB;
 
 /* Media Queries simplified using Sass mixins
 ========================================================= */
@@ -55,7 +71,3 @@ $breakpoints: (
         }
     }
 }
-
-/********************************
-***       COMMON STYLES       ***
-********************************/

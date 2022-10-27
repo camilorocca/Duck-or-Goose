@@ -8,43 +8,73 @@
             the web-app uses the Will of the Gods as a fair and random (hehe) system to choose between them.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootsrap link -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+                rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="./lib/owlcarousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="./lib/owlcarousel/owl.theme.default.min.css">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
         <!-- Custom styles -->
-        <link rel="stylesheet" href="./css/components/navbar/navbar.css">
-        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" type="text/css" href="./css/index.css">
     </head>
-
+    
     <body>
-        <!-- Navigation -->
+        <!-- Header -->
         <header>
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                <a class="navbar-brand" href="#">Killing Floor</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarWheelOfDoom" aria-controls="navbarWheelOfDoom" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarWheelOfDoom">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="#">Killing Floor</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
         </header>
-
         <!-- Main updated whit javascript-->
-        <main role="main">
-            <!-- Main content-->
+        <main role="main" id="mainContainer">
+            <div class="spooky-container">
+                <div class="background-img-container">
+                    <div class="fog-container">
+                        <div class="img-area fog"></div>
+                        <div class="img-area fog"></div>
+                    </div>
+                    <div class="update-area" id="startPoint"></div>
+                </div>
+            </div>
         </main>
+        <!-- Section form hidden -->
+        <section id="formContainer" class="d-none">
+            <div class="container-md center-div" >
+                <div class="form-group background-papyrus">
+                    <form id="formAddSacrifice" class="d-grid mx-auto">
+                        <div class="form-row d-none">
+                            <div class="col-md-12">
+                                <div class="mt-2">
+                                    <label for="inputName" class="form-label">name</label>
+                                    <input type="text" maxlength="10" class="form-control" id="inputName">
+                                </div>
+                                <div class="mt-2">
+                                    <label for="inputName" class="form-label">surnaname</label>
+                                    <input type="text" maxlength="10" class="form-control" id="inputName">
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="d-grid gap-2 mt-2 d-none" id="btnAddContainer">
+                            <button type ="submit" class="btn btn-orange creepy-font btn-general">add sacrifice</button>
+                        </div>
+                        <div id="showLivingCoders" class="d-grid gap-2 mt-2 mb-2 mx-auto">
+                            <div id="lastKilled"class="creepy-font mt-3 text-center"></div>
+                        </div>
+                        <div id="titleStillAlive" class="text-center">Coders still alive</div>
+                    </form>
+                </div>
+            </div>
+        </section>
         
         <!-- Script popper for popUps and dropdowns and bootsrapj.s -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-        
-        <!-- Scripts  for variables and functions-->
-        <script ype="text/javascript" src="./js/variables.js"></script>
-        <script ype="text/javascript" src="./js/killingFloor.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" 
+                crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" 
+                integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" 
+                crossorigin="anonymous">
+        </script>
+        <script src="./lib/jquery/jquery-3.6.1.min.js"></script>
+        <script src="./lib/owlcarousel/owl.carousel.js"></script>
+        <script src="./lib/owlcarousel/owl.autoplay.js"></script>
+        <!-- Custom Scripts-->
+        <script type="module" src="./js/killingFloor.js"></script>
     </body>
 </html>
