@@ -2,7 +2,6 @@
 ***            FONTS          ***
 ********************************/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 body {
   font-family: "Open Sans", serif;
 }
@@ -30,26 +29,19 @@ section {
   padding: 0;
 }
 
-.btn-orange {
-  background-color: #F66C13;
-  color: #FDF0BB;
-  border-radius: 50px;
-  pointer-events: auto;
-}
-
 .btn-purple {
   background-color: #4A347D;
+}
+
+.btn-orange {
+  background-color: #F66C13;
+}
+
+.btn-general {
+  padding: 2%;
   color: #FDF0BB;
   border-radius: 50px;
   pointer-events: auto;
-}
-
-.btn-padding {
-  padding: 2%;
-}
-
-.text-color-moon {
-  color: #FDF0BB;
 }
 
 .creepy-font {
@@ -59,58 +51,14 @@ section {
 /********************************
 ***        START POINT        ***
 ********************************/
-#splatter {
-  right: 0;
-  background: url("../media/images/index/blood-orange 1.png");
-  background-repeat: no-repeat;
-  background-position: 50% 10%;
-  width: 100%;
-  z-index: 100 !important;
-  top: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: absolute;
-  width: 100%;
-  z-index: 0;
-  top: 0;
-  pointer-events: none;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-}
-
-div h1 {
+#startPoint .container-md h1 {
   font-size: 3rem;
 }
 @media (min-width: 768px) {
-  div h1 {
+  #startPoint .container-md h1 {
     font-size: 5rem;
     text-align: center;
   }
-}
-
-#startPoint .container-md .img-pumpkin {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: 2;
-}
-#startPoint .container-md .pumpkin-left {
-  -webkit-clip-path: polygon(0 0, 100% 0%, 0% 100%);
-          clip-path: polygon(0 0, 100% 0%, 0% 100%);
-  -webkit-animation: pumpkin-go-left 1s 1s;
-          animation: pumpkin-go-left 1s 1s;
-}
-#startPoint .container-md .pumpkin-right {
-  -webkit-clip-path: polygon(100% 0, 100% 100%, 0% 100%);
-          clip-path: polygon(100% 0, 100% 100%, 0% 100%);
-  -webkit-animation: pumpkin-go-right 1s 1s;
-          animation: pumpkin-go-right 1s 1s;
 }
 @media (max-width: 576px) {
   #startPoint .container-md #gridBtn {
@@ -142,73 +90,49 @@ div h1 {
     margin-top: 15%;
   }
 }
-
-.list-group-item {
-  border: none !important;
-  color: black;
+#startPoint .container-md .img-pumpkin {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 2;
 }
-
-@-webkit-keyframes pumpkin-go-left {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  30% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100px) translateY(-30px);
-    opacity: 0;
-  }
+#startPoint .container-md .pumpkin-left {
+  -webkit-clip-path: polygon(0 0, 100% 0%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0%, 0% 100%);
+  -webkit-animation: pumpkin-go-left 1s 1s;
+          animation: pumpkin-go-left 1s 1s;
 }
-
-@keyframes pumpkin-go-left {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  30% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100px) translateY(-30px);
-    opacity: 0;
-  }
+#startPoint .container-md .pumpkin-right {
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0% 100%);
+  -webkit-animation: pumpkin-go-right 1s 1s;
+          animation: pumpkin-go-right 1s 1s;
 }
-@-webkit-keyframes pumpkin-go-right {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  30% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100px) translateY(30px);
-    opacity: 0;
-  }
+#startPoint .container-md #splatter {
+  right: 0;
+  background: url("../media/images/index/blood-orange 1.png");
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  width: 100%;
+  z-index: 100 !important;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  top: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
-@keyframes pumpkin-go-right {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  30% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100px) translateY(30px);
-    opacity: 0;
-  }
-}
-/********************************
-***      FORM ADDPLAYERS      ***
-********************************/
-.centered {
+#startPoint .container-md .centered {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -218,31 +142,34 @@ div h1 {
   font-size: 0.5rem;
 }
 @media (min-width: 768px) {
-  .centered {
+  #startPoint .container-md .centered {
     font-size: 0.7rem;
   }
 }
 @media (min-width: 992px) {
-  .centered {
+  #startPoint .container-md .centered {
     font-size: 0.9rem;
   }
 }
 @media (min-width: 768px) {
-  #btnKillGroup {
+  #startPoint .container-md #btnKillGroup {
     margin-top: 2%;
     width: 40%;
   }
 }
 @media (min-width: 992px) {
-  #btnKillGroup {
+  #startPoint .container-md #btnKillGroup {
     margin-top: 1%;
   }
 }
 
+/********************************
+***      FORM ADDPLAYERS      ***
+********************************/
 .background-papyrus {
   font-family: "theHalloween";
   right: 0;
-  background: url("../../../media/images/index/background-papyrus.png");
+  background: url("../media/images/index/background-papyrus.png");
   background-repeat: no-repeat;
   overflow-x: auto;
   overflow-y: visible;
@@ -283,16 +210,18 @@ div h1 {
   margin-top: 5%;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 185px;
+  height: 245px;
   font-size: 0.6rem;
 }
-
-.title-still-alive {
-  margin-top: 10%;
+.background-papyrus .list-group-item {
+  border: none !important;
+  color: black;
 }
-
-#lastKilled {
-  font-size: 1.5rem;
+.background-papyrus #lastKilled {
+  font-size: 1.2rem;
+}
+.background-papyrus .title-still-alive {
+  margin-top: 10%;
 }
 
 /********************************
@@ -317,21 +246,6 @@ div h1 {
   height: 100%;
   width: 100%;
   z-index: 0;
-  /*
-  .update-area {
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-  }*/
 }
 @media (min-width: 1600px) {
   .spooky-container .background-img-container {
@@ -426,7 +340,7 @@ div h1 {
   }
 }
 /********************************
-***     DUCK-KILL ANIMATION     ***
+***    DUCK-KILL ANIMATION    ***
 ********************************/
 .wobble-ver-left {
   -webkit-animation: wobble-ver-left 1s steps(5, end) 1s infinite alternate-reverse both;
@@ -477,30 +391,92 @@ div h1 {
     transform: translateY(-6px) rotate(-1.2deg);
   }
 }
-.scale-up-center {
-  -webkit-animation: scale-up-center 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
-  animation: scale-up-center 1s cubic-bezier(0.39, 0.575, 0.565, 1) 0.1s both;
+/********************************
+***    SPLATTER ANIMATION    ***
+********************************/
+.scale-in-center {
+  -webkit-animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/**
-* ----------------------------------------
-* animation scale-up-center
-* ----------------------------------------
-*/
-@-webkit-keyframes scale-up-center {
+/* splatter animation keyframes
+========================================================= */
+@-webkit-keyframes scale-in-center {
   0% {
-    transform: scale(0.5);
+    transform: scale(0);
+    opacity: 1;
   }
   100% {
     transform: scale(1);
+    opacity: 1;
   }
 }
-@keyframes scale-up-center {
+@keyframes scale-in-center {
   0% {
-    transform: scale(0.5);
+    transform: scale(0);
+    opacity: 1;
   }
   100% {
     transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Pumpkin animation keyframes
+========================================================= */
+@-webkit-keyframes pumpkin-go-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100px) translateY(-30px);
+    opacity: 0;
+  }
+}
+@keyframes pumpkin-go-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100px) translateY(-30px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes pumpkin-go-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px) translateY(30px);
+    opacity: 0;
+  }
+}
+@keyframes pumpkin-go-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100px) translateY(30px);
+    opacity: 0;
   }
 }
 /**************************************

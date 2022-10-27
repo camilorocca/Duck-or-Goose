@@ -5,7 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body{
-   font-family: 'Open Sans',serif;
+    font-family: 'Open Sans', serif;
 }
 
 @font-face {
@@ -13,11 +13,8 @@ body{
     src: url("../media/fonts/The_Halloween.ttf");
 }
 
-
 $font-main: 'theHalloween';
-$font-text: 'Open Sans';
-
-
+$font-inputs: 'Open Sans';
 
 /********************************
 ***       COLOR PALETTE       ***

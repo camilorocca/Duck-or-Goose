@@ -41,7 +41,7 @@ export let mainTitle = [{
         id: "btn-startKilling",
         elementToAppend: "#gridBtn",
         elementToCreate: "button",
-        classArray: ["btn", "btn-orange", "btn-lg", "creepy-font"],
+        classArray: ["btn", "btn-orange", "btn-lg", "creepy-font", "btn-general"],
         text: "start Killing",
         type: "button"
     },
@@ -49,7 +49,7 @@ export let mainTitle = [{
         id: "btn-addSacrifices",
         elementToAppend: "#gridBtn",
         elementToCreate: "button",
-        classArray: ["btn", "btn-purple", "btn-lg", "creepy-font"],
+        classArray: ["btn", "btn-purple", "btn-lg", "creepy-font", "btn-general"],
         text: "add Sacrifices",
         type: "button"
     },
@@ -119,7 +119,7 @@ export let playView = [{
         id: "btn-killSomeone",
         elementToAppend: "#btnKillGroup",
         elementToCreate: "button",
-        classArray: ["btn", "btn-orange", "btn-lg", "creepy-font", "btn-paddding"],
+        classArray: ["btn", "btn-orange", "btn-lg", "creepy-font", "btn-general"],
         text: "killSomeone",
         type: "button"
     },
@@ -127,12 +127,11 @@ export let playView = [{
         id: "btn-flee",
         elementToAppend: "#btnKillGroup",
         elementToCreate: "button",
-        classArray: ["btn", "btn-purple", "btn-lg", "creepy-font", "btn-paddding"],
+        classArray: ["btn", "btn-purple", "btn-lg", "creepy-font", "btn-general"],
         text: "flee",
         type: "button"
     }
 ]
-
 
 export let setData = [];
 
