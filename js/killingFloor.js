@@ -228,7 +228,9 @@ const drawPlayView = () => {
     if (setData.length > 0) {
         setData.length = 0;             //remove DOM elements from previous games
     }
+
     fillInfoCarousel();          //fill array with new carousel elements excludin dead coders
+
     drawScreen(playView);
     drawScreen(setData);
     
@@ -313,7 +315,7 @@ const killSomeone = () => {
         if (el.id == indexToKill) {             //check if carousel item id matches with sacrifice id
             killedCoder = el;
             el.killed = true;
-        }
+        }        
     });
     
     searchEl("#btn-killSomeone").classList.add("disabled");
