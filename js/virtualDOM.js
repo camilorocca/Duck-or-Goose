@@ -130,6 +130,30 @@ export let playView = [{
         classArray: ["btn", "btn-purple", "btn-lg", "creepy-font", "btn-general"],
         text: "flee",
         type: "button"
+    },
+    {
+        id: "rowTombs",
+        elementToAppend: ".spooky-container",
+        elementToCreate: "div",
+        classArray: ["d-none"]
+    },
+    {
+        id: "rowTombsName",
+        elementToAppend: "#rowTombs",
+        elementToCreate: "div",
+        classArray: ["creepy-font"]
+    },
+    {
+        id: "rowTombsSurname",
+        elementToAppend: "#rowTombs",
+        elementToCreate: "div",
+        classArray: ["creepy-font"]
+    },
+    {
+        id: "rowTombsDate",
+        elementToAppend: "#rowTombs",
+        elementToCreate: "div",
+        classArray: ["creepy-font"]
     }
 ]
 

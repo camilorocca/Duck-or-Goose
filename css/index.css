@@ -163,6 +163,31 @@ section {
   }
 }
 
+#rowTombs {
+  background: url("../media/images/index/graveStone.png");
+  background-repeat: no-repeat;
+  position: absolute;
+  background-position: 100% 78%;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 70vh;
+  font-size: 0.5rem;
+}
+#rowTombs #rowTombsName {
+  margin-left: 92%;
+  margin-top: 22.75%;
+}
+#rowTombs #rowTombsSurname {
+  margin-left: 92%;
+}
+#rowTombs #rowTombsDate {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 1rem;
+  margin-left: 92%;
+}
+
 /********************************
 ***      FORM ADDPLAYERS      ***
 ********************************/
@@ -392,6 +417,36 @@ section {
   }
 }
 /********************************
+***    SLIDEIN ANIMATION    ***
+********************************/
+.slide-in-top {
+  -webkit-animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* slide-in animation keyframes
+========================================================= */
+@-webkit-keyframes slide-in-top {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/********************************
 ***    SPLATTER ANIMATION    ***
 ********************************/
 .scale-in-center {
@@ -525,7 +580,7 @@ section {
 }
 @media (min-width: 1200px) {
   #carouselControls {
-    margin-top: -7%;
+    margin-top: -8%;
   }
 }
 

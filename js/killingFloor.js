@@ -28,12 +28,13 @@ let audioFogHorn = new Audio('../media/audio/fogHorn.mp3');
 let audioKnife = new Audio('../media/audio/knife.mp3');
 let audioDuck = new Audio('../media/audio/duck.mp3');
 let audioParchmentOpens = new Audio('../media/audio/parchmentOpens.mp3');
-    let audioParchmentCloses = new Audio('../media/audio/parchmentCloses.mp3');
+let audioParchmentCloses = new Audio('../media/audio/parchmentCloses.mp3');
 
 //checks for main title
 let fogSetted = true;
 let addPlayersClicked = false;
 let killingInProgress = false;
+let tombSetted = false;
 
 //owl carousel initial variables
 let owl;
@@ -330,7 +331,7 @@ const killSomeone = () => {
             searchEl("#splatter").classList.remove("d-none");
             setTimeout(() => {
                 if(killingInProgress){          //show parchment with still alive list
-                    searchEl("#lastKilled").innerHTML = `${killedCoder.name} ${killedCoder.surnames.surnameOne}`
+                    searchEl("#lastKilled").innerHTML = `${killedCoder.name} ${killedCoder.surnames.surnameOne}`;
                     searchEl("#rowKill").classList.remove("rowKillAddPlayers")
                     searchEl("#titleStillAlive").classList.add("title-still-alive")
                     searchEl("#rowKill").classList.add("rowKillShowPlayers")
@@ -338,6 +339,15 @@ const killSomeone = () => {
                     audioParchmentOpens.play();
                     searchEl("#btn-killSomeone").classList.remove("disabled");
                     searchEl("#btn-flee").classList.remove("disabled");
+                    
+                    /*if(!tombSetted){
+                        searchEl("#rowTombs").classList.add("d-xl-block");
+                        searchEl("#rowTombs").classList.add("slide-in-top");
+                        tombSetted = true;
+                    }
+                    searchEl("#rowTombsName").innerHTML = `${killedCoder.name}`;
+                    searchEl("#rowTombsSurname").innerHTML = `${killedCoder.surnames.surnameOne}`;
+                    searchEl("#rowTombsDate").innerHTML = "? - 2022";*/
                 }
             }, 1500);
         }, 1450);
